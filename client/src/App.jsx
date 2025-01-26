@@ -1,11 +1,12 @@
-import { useState } from 'react'
+import { Route, Routes } from 'react-router-dom'
 import './App.css'
+import HomePage from './components/Home/HomePage.jsx';
 
 function App() {
   return (
-    <>
-      <div className='text-3xl font-bold bg-green-900 text-white'>Home</div>
-    </>
+    <Routes>
+      <Route path='/' element={<HomePage />}></Route>
+    </Routes>
   )
 }
 
