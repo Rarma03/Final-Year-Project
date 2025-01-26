@@ -3,6 +3,8 @@ import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import cors from 'cors';
+
+// Importing database models
 import BookModel from './models/BookModel.js'
 import JobpostModel from './models/JobpostModel.js'
 import StudentModel from './models/StudentModel.js'
