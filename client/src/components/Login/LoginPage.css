@@ -1,24 +1,5 @@
-/* Importing Google Fonts - Montserrat */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Montserrat", sans-serif;
-}
 
-body {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  background: #fff; /* Changed background to white */
-}
-
-#root {
-  width: 100%;
-  padding: 0.6rem;
-}
 .login-container {
   margin: 0 auto;
   max-width: 410px;
@@ -84,19 +65,19 @@ body {
   background: #bfb3f2;
 }
 .login-form .input-wrapper {
-  height: 42px; /* Reduced height */
+  height: 42px; 
   width: 100%;
   position: relative;
-  margin-bottom: 1rem; /* Adjusted spacing */
+  margin-bottom: 1rem; 
 }
 .login-form .input-field {
   width: 100%;
   height: 100%;
   outline: none;
-  font-size: 0.9rem; /* Reduced font size */
+  font-size: 0.9rem; 
   border-radius: 0.31rem;
   border: 1px solid #bfb3f2;
-  padding: 0 1rem; /* Reduced padding */
+  padding: 0 1rem; 
   transition: 0.2s ease;
 }
 .login-form .input-field:focus {
@@ -104,7 +85,7 @@ body {
 }
 .login-form .input-field::placeholder {
   color: #9284c8;
-  font-size: 0.85rem; /* Slightly smaller placeholder */
+  font-size: 0.85rem; 
 }
 .login-form .input-wrapper i {
   position: absolute;
@@ -129,7 +110,7 @@ body {
   border: none;
   outline: none;
   width: 100%;
-  height: 42px; /* Adjusted button height */
+  height: 42px;
   color: #fff;
   font-size: 1rem;
   font-weight: 500;
@@ -144,7 +125,7 @@ body {
 }
 .login-container .signup-prompt {
   text-align: center;
-  font-size: 0.95rem; /* Adjusted font size */
+  font-size: 0.95rem; 
   font-weight: 500;
   margin: 1.5rem 0 0.25rem;
 }
