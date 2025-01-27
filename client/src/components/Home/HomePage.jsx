@@ -17,10 +17,10 @@ const HomePage = () => {
                     {/* Login and Register buttons aligned to the right */}
                     <div className="flex space-x-4">
                         <button className="px-5 py-2 border border-dashed rounded-full border-black bg-white hover:shadow-lg hover:shadow-black">
-                            <a href="/login/login.html">Login</a>
+                            <a href="/login">Login</a>
                         </button>
                         <button className="px-5 py-2 border border-dashed rounded-full border-black bg-white hover:shadow-lg hover:shadow-black">
-                            <a href="/register/register.html">Register</a>
+                            <a href="/studentRegister">Register</a>
                         </button>
                     </div>
                 </div>
