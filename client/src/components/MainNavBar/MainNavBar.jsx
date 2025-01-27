@@ -5,7 +5,7 @@ import ProfileLogo from './Adders/ProfileLogo'
 
 const MainNavBar = () => {
     return (
-        <div className='grid grid-cols-10 mt-2'>
+        <div className='grid grid-cols-10 mt-2 items-center'>
             <div className='col-span-2'>
                 <WebLogo />
             </div>

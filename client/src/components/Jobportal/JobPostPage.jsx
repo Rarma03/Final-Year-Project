@@ -1,8 +1,12 @@
 import React from 'react'
+import MainNavBar from '../MainNavBar/MainNavBar'
 
 const JobPostPage = () => {
     return (
-        <div>JobPostPage</div>
+        <div>
+            <MainNavBar />
+            JobPostPage
+        </div>
     )
 }
 

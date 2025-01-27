@@ -1,8 +1,12 @@
 import React from 'react'
+import MainNavBar from '../MainNavBar/MainNavBar'
 
 const VirtualLibraryPage = () => {
     return (
-        <div>VirtualLibraryPage</div>
+        <div>
+            <MainNavBar />
+            VirtualLibraryPage
+        </div>
     )
 }
 

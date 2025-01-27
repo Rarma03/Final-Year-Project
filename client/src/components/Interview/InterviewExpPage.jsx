@@ -1,8 +1,12 @@
 import React from 'react'
+import MainNavBar from '../MainNavBar/MainNavBar'
 
 const InterviewExpPage = () => {
     return (
-        <div>InterviewExpPage</div>
+        <div>
+            <MainNavBar />
+            InterviewExpPage
+        </div>
     )
 }
 
