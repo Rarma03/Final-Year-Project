@@ -1,26 +1,23 @@
 import React from 'react'
 import './HomePage.css'
+import { Link } from 'react-router-dom'
 
 const HomePage = () => {
     return (
         <>
-            {/* <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"> */}
             <div className="top-logo-bar">
-                {/* <div class="w-[250px] h-[250px] absolute mt-[-9px]">
-      <img src="/images/geometery.png" class="drop-bg">
-  </div> */}
                 <div className="flex justify-between items-center p-4">
                     {/* Home button aligned to the left */}
                     <button className="px-5 py-2 border border-dashed rounded-full mx-2 border-black bg-white hover:shadow-lg hover:shadow-black">
-                        <a href="/home/index.html">Home</a>
+                        <Link to={'/'}>Home</Link>
                     </button>
                     {/* Login and Register buttons aligned to the right */}
                     <div className="flex space-x-4">
                         <button className="px-5 py-2 border border-dashed rounded-full border-black bg-white hover:shadow-lg hover:shadow-black">
-                            <a href="/login">Login</a>
+                            <Link to={'/login'}>Login</Link>
                         </button>
                         <button className="px-5 py-2 border border-dashed rounded-full border-black bg-white hover:shadow-lg hover:shadow-black">
-                            <a href="/studentRegister">Register</a>
+                            <Link to={'/register'}>Register</Link>
                         </button>
                     </div>
                 </div>
@@ -44,8 +41,8 @@ const HomePage = () => {
                     <div className="flex flex-row items-center w-full mt-5">
                         <div className="bg-black h-1 w-full" />
                         <div className="bg-black h-4 w-4" />
-                        <span className="text-violet-400 font-bold mx-5 bg-white px-5 py-2 rounded-full border border-dashed border-black">
-                            <span className="font-bold">Campus</span>&nbsp;Connect
+                        <span className="text-violet-400 font-bold mx-5 bg-white px-5 py-2 rounded-full border border-dashed border-black kumar-one-regular">
+                            <span className="font-bold kumar-one-regular">Campus</span>&nbsp;Connect
                         </span>
                         <div className="bg-black h-4 w-4" />
                         <div className="bg-black h-1 w-full" />
@@ -53,7 +50,6 @@ const HomePage = () => {
                 </h1>
             </div>
             <div className="bg-white h-full rounded-xl m-5 p-4 flex">
-                {/* <img src="https://images.unsplash.com/photo-1677594334053-afe4b41aa0a3?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="h-[300px] w-[300px]"> */}
                 <div className="gridywrap">
                     <div className="intro">
                         <h1>Let's Dive Into Insights Of SGSITS!</h1>
@@ -352,7 +348,7 @@ const HomePage = () => {
             </section>
             {/* Footer Section */}
             <footer className="bg-black text-white flex justify-center py-5">
-                <p>© 2024 GS Campus Connect. All Rights Reserved.</p>
+                <p>©2025 GS Campus Connect. All Rights Reserved.</p>
             </footer>
             {/* Link to JS */}
         </>
