@@ -9,7 +9,7 @@ const HomePage = () => {
                 <div className="flex justify-between items-center p-4">
                     {/* Home button aligned to the left */}
                     <button className="px-5 py-2 border border-dashed rounded-full mx-2 border-black bg-white hover:shadow-lg hover:shadow-black">
-                        <Link to={'/'}>Home</Link>
+                        <Link to={'/feature'}>Home</Link>
                     </button>
                     {/* Login and Register buttons aligned to the right */}
                     <div className="flex space-x-4">
