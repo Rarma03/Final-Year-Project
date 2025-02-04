@@ -69,53 +69,51 @@ const PageWrapper = ({ children }) => {
     <motion.div
       initial={{
         opacity: 0,
-        y: 20,
+        y: 24,
         scale: 0.98,
-        filter: 'blur(4px)'
       }}
       animate={{
         opacity: 1,
         y: 0,
         scale: 1,
-        filter: 'blur(0px)',
         transition: {
-          duration: 0.6,
-          ease: [0.6, -0.05, 0.01, 0.99],
-          scale: { duration: 0.4 }
+          duration: 0.5,
+          ease: [0.33, 1, 0.68, 1],
+          when: "beforeChildren"
         }
       }}
       exit={{
         opacity: 0,
-        y: -40,
-        scale: 0.95,
-        filter: 'blur(4px)',
+        y: -24,
+        scale: 0.98,
         transition: {
           duration: 0.4,
-          ease: [0.48, 0.15, 0.25, 0.96]
+          ease: [0.48, 0.15, 0.25, 0.96],
+          when: "afterChildren"
         }
       }}
       style={{ position: 'relative' }}
     >
-      {children}
+      {/* Subtle overlay for smoother transition */}
       <motion.div
-        style={{
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          width: '100%',
-          height: '100%',
-          background: 'rgba(255,255,255,0.5)',
-          pointerEvents: 'none',
-          zIndex: 100,
-          opacity: 0
-        }}
         initial={{ opacity: 0 }}
         animate={{ opacity: 0 }}
         exit={{
           opacity: 1,
-          transition: { duration: 0.3 }
+          transition: { duration: 0.2 }
+        }}
+        style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          backgroundColor: 'rgba(255, 255, 255, 0.8)',
+          zIndex: 100,
+          pointerEvents: 'none',
         }}
       />
+      {children}
     </motion.div>
   );
 };
