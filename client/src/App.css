@@ -1,0 +1,16 @@
+/* Smooth scrolling behavior */
+html {
+    scroll-behavior: smooth;
+}
+  
+/* Better font rendering for animated text */
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+/* Prevent layout shift during animations */
+[motion-presence] {
+    overflow: hidden;
+}
