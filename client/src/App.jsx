@@ -11,6 +11,9 @@ import CommunityPage from './components/Community/CommunityPage.jsx';
 import InterviewExpPage from './components/Interview/InterviewExpPage.jsx';
 import VirtualLibraryPage from './components/VirtualLibrary/VirtualLibraryPage.jsx';
 import JobPostPage from './components/Jobportal/JobPostPage.jsx';
+import EventPage from './components/Event/EventPage.jsx';
+import RoomMatePage from './components/Roommate/RoomMatePage.jsx';
+import FundRasingPage from './components/Fundrasing/FundRasingPage.jsx';
 
 function App() {
   const location = useLocation(); // Get current route location
@@ -57,6 +60,18 @@ function App() {
         <Route
           path="/teacherRegister"
           element={<PageWrapper><TeacherRegisterPage /></PageWrapper>}
+        />
+        <Route
+          path="/events"
+          element={<PageWrapper><EventPage /></PageWrapper>}
+        />
+        <Route
+          path="/roomfinder"
+          element={<PageWrapper><RoomMatePage /></PageWrapper>}
+        />
+        <Route
+          path="/fundrasing"
+          element={<PageWrapper><FundRasingPage /></PageWrapper>}
         />
       </Routes>
     </AnimatePresence>
