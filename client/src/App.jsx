@@ -14,6 +14,9 @@ import JobPostPage from './components/Jobportal/JobPostPage.jsx';
 import EventPage from './components/Event/EventPage.jsx';
 import RoomMatePage from './components/Roommate/RoomMatePage.jsx';
 import FundRasingPage from './components/Fundrasing/FundRasingPage.jsx';
+import ProfilePage from './components/Profile/ProfilePage.jsx';
+import UploadBookForm from './components/Profile/Adders/UploadBookForm.jsx';
+import CreateFlatRequestForm from './components/Profile/Adders/CreateFlatRequestForm.jsx';
 
 function App() {
   const location = useLocation(); // Get current route location
@@ -73,6 +76,13 @@ function App() {
           path="/fundrasing"
           element={<PageWrapper><FundRasingPage /></PageWrapper>}
         />
+
+        <Route path="/profile" element={<ProfilePage />}>
+          {/* ProfilePage could render UpperSectionPage and LowerSectionPage */}
+          <Route path="uploadbook" element={<UploadBookForm />} />
+          <Route path="createflatrequest" element={<CreateFlatRequestForm />} />
+        </Route>
+
       </Routes>
     </AnimatePresence>
   );
