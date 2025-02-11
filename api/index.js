@@ -17,8 +17,9 @@ dotenv.config();
 const app = express();
 
 // Middleware setup
-app.use(express.json()); // To parse JSON request bodies
-app.use(cors()); // Enable Cross-Origin Resource Sharing
+app.use(express.json());
+app.use(cors({ origin: 'http://localhost:5173', credentials: true })); // Allow frontend requests
+app.use(cookieParser());
 
 // MongoDB connection
 mongoose

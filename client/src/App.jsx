@@ -3,8 +3,6 @@ import { AnimatePresence, motion } from 'framer-motion';
 import './App.css';
 import HomePage from './components/Home/HomePage.jsx';
 import RegisterPage from './components/Register/RegisterPage.jsx';
-import StudentRegisterPage from './components/Register/Student/StudentRegisterPage.jsx';
-import TeacherRegisterPage from './components/Register/Teacher/TeacherRegisterPage.jsx';
 import LoginPage from './components/Login/LoginPage.jsx';
 import FeaturePage from './components/Feature/FeaturePage.jsx';
 import CommunityPage from './components/Community/CommunityPage.jsx';
@@ -55,14 +53,6 @@ function App() {
         <Route
           path="/jobs"
           element={<PageWrapper><JobPostPage /></PageWrapper>}
-        />
-        <Route
-          path="/studentRegister"
-          element={<PageWrapper><StudentRegisterPage /></PageWrapper>}
-        />
-        <Route
-          path="/teacherRegister"
-          element={<PageWrapper><TeacherRegisterPage /></PageWrapper>}
         />
         <Route
           path="/events"
