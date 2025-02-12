@@ -16,14 +16,16 @@ const UserSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    googleString: {
-        type: String,
-        default: ""
-    },
+    // googleString: {
+    //     type: String,
+    //     default: ""
+    // },
+    
     isTeacher: {
         type: Boolean,
-        default: false
+        // default: false
     }
+    
     // unique teacher password - gsfaculty
 });
 
