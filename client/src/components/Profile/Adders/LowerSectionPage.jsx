@@ -16,7 +16,7 @@ const LowerSectionPage = () => {
                         to="/profile/uploadbook"
                         className={`block p-2 rounded-md ${pth === '/profile/uploadbook' ? 'text-orange-500 font-semibold' : 'text-gray-700'}`}
                     >
-                        Upload Book
+                        Upload Book/Notes
                     </Link>
                     <Link
                         to="/profile/createflatrequest"

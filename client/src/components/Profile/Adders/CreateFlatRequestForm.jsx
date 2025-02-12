@@ -8,7 +8,6 @@ const CreateFlatRequestForm = () => {
         genderPreference: 'any',
         rent: '',
         moveInDate: '',
-        smokingAllowed: false,
         contactInfo: ''
     });
 
@@ -31,17 +30,17 @@ const CreateFlatRequestForm = () => {
             <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="mb-4">
                     <label htmlFor="name" className="block text-sm font-medium text-gray-700">Your Name:</label>
-                    <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} required className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:border-amber-500 focus:ring focus:ring-amber-200" />
+                    <input type="text" id="name" name="name" placeholder='e.g. Raj Verma' value={formData.name} onChange={handleChange} required className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:border-amber-500 focus:ring focus:ring-amber-200" />
                 </div>
 
                 <div className="mb-4">
                     <label htmlFor="description" className="block text-sm font-medium text-gray-700">Description:</label>
-                    <textarea id="description" name="description" value={formData.description} onChange={handleChange} required className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:border-amber-500 focus:ring focus:ring-amber-200" />
+                    <textarea id="description" name="description" placeholder='e.g. I am Looking for a boy flatmate, any branch, available to share rent with half price' value={formData.description} onChange={handleChange} required className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:border-amber-500 focus:ring focus:ring-amber-200" />
                 </div>
 
                 <div className="mb-4">
                     <label htmlFor="location" className="block text-sm font-medium text-gray-700">Google Maps Link:</label>
-                    <input type="text" id="location" name="location" value={formData.location} onChange={handleChange} required className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:border-amber-500 focus:ring focus:ring-amber-200" />
+                    <input type="text" id="location" name="location" placeholder='e.g. https://maps.app.goo.gl/xKwBqqAzstDx7BzdA' value={formData.location} onChange={handleChange} required className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:border-amber-500 focus:ring focus:ring-amber-200" />
                 </div>
 
                 <div className="mb-4">
@@ -54,8 +53,8 @@ const CreateFlatRequestForm = () => {
                 </div>
 
                 <div className="mb-4">
-                    <label htmlFor="rent" className="block text-sm font-medium text-gray-700">Rent (in $):</label>
-                    <input type="number" id="rent" name="rent" value={formData.rent} onChange={handleChange} className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:border-amber-500 focus:ring focus:ring-amber-200" />
+                    <label htmlFor="rent" className="block text-sm font-medium text-gray-700">Rent (in &#8377;):</label>
+                    <input type="number" id="rent" name="rent" placeholder='e.g. 5000' value={formData.rent} onChange={handleChange} className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:border-amber-500 focus:ring focus:ring-amber-200" />
                 </div>
 
                 <div className="mb-4">
@@ -64,15 +63,8 @@ const CreateFlatRequestForm = () => {
                 </div>
 
                 <div className="mb-4">
-                    <label className="flex items-center space-x-2">
-                        <input type="checkbox" name="smokingAllowed" checked={formData.smokingAllowed} onChange={handleChange} />
-                        <span>Smoking Allowed</span>
-                    </label>
-                </div>
-
-                <div className="mb-4">
                     <label htmlFor="contactInfo" className="block text-sm font-medium text-gray-700">Contact Info:</label>
-                    <input type="text" id="contactInfo" name="contactInfo" value={formData.contactInfo} onChange={handleChange} required className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:border-amber-500 focus:ring focus:ring-amber-200" />
+                    <input type="text" id="contactInfo" name="contactInfo" placeholder='e.g. +91 9876543210' value={formData.contactInfo} onChange={handleChange} required className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:border-amber-500 focus:ring focus:ring-amber-200" />
                 </div>
 
                 <button type="submit" className="w-full bg-amber-500 text-white font-semibold py-2 px-4 rounded-md hover:bg-amber-700 transition duration-200">Submit</button>

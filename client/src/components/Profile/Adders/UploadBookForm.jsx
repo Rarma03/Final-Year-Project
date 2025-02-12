@@ -106,6 +106,7 @@ const UploadBookForm = () => {
 
     return (
         <form onSubmit={handleSubmit} className="max-w-md mx-auto p-6 bg-white shadow-md rounded-md">
+            <h2 className="text-2xl font-bold mb-4 text-gray-700">Create a New Book/Notes</h2>
             <div className="mb-4">
                 <label htmlFor="title" className="block text-sm font-medium text-gray-700">
                     Title<span className="text-red-500"> *</span>:
@@ -115,6 +116,7 @@ const UploadBookForm = () => {
                     id="title"
                     name="title"
                     value={formData.title}
+                    placeholder='e.g. DBMS Short Notes'
                     onChange={handleChange}
                     required
                     className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:border-blue-500 focus:ring focus:ring-blue-200"
@@ -130,6 +132,7 @@ const UploadBookForm = () => {
                     type="number"
                     id="semester"
                     name="semester"
+                    placeholder='e.g. 6'
                     value={formData.semester}
                     onChange={handleChange}
                     className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:border-blue-500 focus:ring focus:ring-blue-200"
@@ -144,6 +147,7 @@ const UploadBookForm = () => {
                     type="text"
                     id="branch"
                     name="branch"
+                    placeholder='e.g. IT'
                     value={formData.branch}
                     onChange={handleChange}
                     required
@@ -182,6 +186,7 @@ const UploadBookForm = () => {
                     type="text"
                     id="tags"
                     name="tags"
+                    placeholder='e.g. dbms notes, quick notes, new notes'
                     value={formData.tags}
                     onChange={handleChange}
                     className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:border-blue-500 focus:ring focus:ring-blue-200"
@@ -196,6 +201,7 @@ const UploadBookForm = () => {
                     type="url"
                     id="driveLink"
                     name="driveLink"
+                    placeholder='e.g. google drive link'
                     value={formData.driveLink}
                     onChange={handleChange}
                     required
