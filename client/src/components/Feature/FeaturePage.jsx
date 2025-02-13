@@ -3,8 +3,13 @@ import MainNavBar from '../MainNavBar/MainNavBar'
 import LowerSectionPage from './Adders/LowerSectionPage'
 import FeaturesBoxPage from './Adders/FeaturesBoxPage'
 import RecentThingsPage from './Adders/RecentThingsPage'
+import { useContext } from 'react'
+import { AuthContext } from '../AuthContext.jsx'
 
 const FeaturePage = () => {
+    const { user } = useContext(AuthContext);
+    console.log(user);
+
     return (
         <div className='flex flex-col min-h-screen'>
             {/* Navigation-Bar */}

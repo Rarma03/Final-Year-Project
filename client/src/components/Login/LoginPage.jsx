@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useNavigate } from "react-router-dom";
+import {AuthContext} from "../AuthContext.jsx"
 import axios from 'axios';
 
 const LoginPage = () => {
@@ -7,10 +8,10 @@ const LoginPage = () => {
     email: '',
     password: '',
   });
-  const [error, setError] = useState('');
+  // const [error, setError] = useState('');
+  const {loading, error, dispatch} = useContext(AuthContext);
   const navigate = useNavigate();
 
-  // Update form data on input change.
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({
@@ -19,23 +20,16 @@ const LoginPage = () => {
     }));
   };
 
-  // Handle form submission with axios.
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError('');
-    try {
-      // Adjust the endpoint URL as needed.
-      const response = await axios.post('http://localhost:5000/api/login', formData);
-      // Assuming the backend returns a JSON object with a "success" flag.
-      if (response.status === 200 && response.data.success) {
-        navigate('/feature');
-      }
-      else {
-        setError(response.data.message || 'Invalid email or password.');
-      }
-    } catch (err) {
-      console.error("Login error:", err);
-      setError('Login failed. Please try again.');
+    dispatch({type: "LOGIN_START"});
+    try{
+      const res = await axios.post("http://localhost:5000/api/auth/login", formData);
+      dispatch({type: "LOGIN_SUCCESS", payload: res.data});
+      navigate('/feature');
+    }
+    catch(err){
+      dispatch({type: "LOGIN_FAILURE", payload: err.response?.data || "Something went wrong",});
     }
   };
 
@@ -80,7 +74,7 @@ const LoginPage = () => {
           </div>
           {/* Error Message */}
           {error && (
-            <p className="text-red-500 text-sm mb-4">{error}</p>
+            <p className="text-red-500 text-sm mb-4">Wrong Credentials</p>
           )}
           {/* Submit Button */}
           <button

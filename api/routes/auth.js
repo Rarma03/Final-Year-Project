@@ -1,6 +1,7 @@
 import express from "express";
 import UserModel from "../models/UserModel.js";
 import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
 
 const router = express.Router();
 
@@ -47,7 +48,14 @@ router.post("/login", async (req, res) => {
             return res.status(400).json({ message: "Wrong Credentials" });
         }
 
+        const jwtSecretKey = "your_secret_key";
+        const token = jwt.sign({id: user._id}, jwtSecretKey);
+
         const { password, ...others } = user._doc;
+        res.cookie("accessToken", token, {
+            httpOnly: true
+        });
+        
         res.status(200).json(others);
     } 
     catch (err) {
