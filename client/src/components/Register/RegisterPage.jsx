@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const RegisterPage = () => {
     const [formData, setFormData] = useState({
@@ -31,7 +31,6 @@ const RegisterPage = () => {
         }
     };
 
-    const navigate = useNavigate();
     const handleSubmit = async (e) => {
         e.preventDefault();
         // If registering as teacher, validate the unique code.
@@ -46,11 +45,11 @@ const RegisterPage = () => {
 
         try {
             // Make a POST request to your registration endpoint.
-            const response = await axios.post('http://localhost:5000/api/register', formData);
+            const response = await axios.post('http://localhost:5000/api/auth/register', formData);
 
             // Check if the registration is successful.
-            if (response.status === 200 && response.data.success) {
-                navigate('/commondataform');
+            if (response.status === 201) {
+                window.location.replace("/commondataform");
             }
             else {
                 setError(response.data.message || 'Registration failed. Please try again.');

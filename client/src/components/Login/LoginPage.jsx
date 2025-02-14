@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import {AuthContext} from "../AuthContext.jsx"
 import axios from 'axios';
 
@@ -10,7 +10,6 @@ const LoginPage = () => {
   });
   // const [error, setError] = useState('');
   const {loading, error, dispatch} = useContext(AuthContext);
-  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -26,7 +25,7 @@ const LoginPage = () => {
     try{
       const res = await axios.post("http://localhost:5000/api/auth/login", formData);
       dispatch({type: "LOGIN_SUCCESS", payload: res.data});
-      navigate('/feature');
+      window.location.replace("/feature");
     }
     catch(err){
       dispatch({type: "LOGIN_FAILURE", payload: err.response?.data || "Something went wrong",});
