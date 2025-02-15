@@ -24,8 +24,12 @@ const UserSchema = new mongoose.Schema({
     isTeacher: {
         type: Boolean,
         // default: false
-    }
+    },
     
+    isFirstTime:{
+        type: Boolean,
+        default: true
+    }
     // unique teacher password - gsfaculty
 });
 

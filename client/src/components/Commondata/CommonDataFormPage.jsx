@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import { useUser } from '../UserContext.jsx';
+// import { useUser } from '../UserContext.jsx';
+import { AuthContext } from '../AuthContext.jsx'
 
 const CommonDataFormPage = () => {
-    const { user, loading } = useUser();
+    const { user, loading } = useContext(AuthContext);
+    console.log(user);
     const navigate = useNavigate();
     const [formData, setFormData] = useState({});
     const [error, setError] = useState('');
@@ -13,8 +15,8 @@ const CommonDataFormPage = () => {
         "Computer Architecture and Organization",
         "Computer Networks",
         "Operating System",
-        "Database Managment System",
-        "Data Structure and Alogrithm",
+        "Database Management System",
+        "Data Structure and Algorithm",
         "Object Oriented Programming",
         "Software Engineering",
         "Theory of Computation",
@@ -52,17 +54,17 @@ const CommonDataFormPage = () => {
         setError('');
 
         try {
-            const endpoint = user.isTeacher
-                ? '/api/teachers/update'
-                : '/api/students/update';
-
+            const endpoint = "http://localhost:5000/api/commonData";
+                
+            // Ensure enrollment no is unique -> To be completed
             const response = await axios.post(endpoint, {
                 userId: user._id,
                 ...formData
             });
 
-            if (response.status === 200) {
-                navigate('/dashboard');
+            if (response.status === 201) {
+                // user.isFirstTime = false; updated this in backend
+                navigate('/feature');
             }
         } catch (err) {
             console.error("Submission error:", err);

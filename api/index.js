@@ -5,6 +5,8 @@ import cors from "cors";
 import cookieParser from "cookie-parser";
 
 import authRoute from "./routes/auth.js";
+import commonData from "./routes/commonData.js";
+
 
 const app = express();
 app.use(express.json());
@@ -20,6 +22,7 @@ mongoose
 
 // Routes
 app.use("/api/auth", authRoute);
+app.use("/api/commonData", commonData);
 
 // Start server
 const PORT = process.env.PORT || 5000;

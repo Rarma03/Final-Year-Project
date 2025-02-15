@@ -49,7 +49,7 @@ const RegisterPage = () => {
 
             // Check if the registration is successful.
             if (response.status === 201) {
-                window.location.replace("/commondataform");
+                window.location.replace("/login");
             }
             else {
                 setError(response.data.message || 'Registration failed. Please try again.');

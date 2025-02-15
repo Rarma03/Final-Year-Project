@@ -2,9 +2,11 @@ import mongoose from "mongoose";
 
 const DataSchema = new mongoose.Schema(
     {
-        userid: {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'UserModel'
+        userId: {
+            // type: mongoose.Schema.Types.ObjectId,
+            // ref: 'UserModel'
+            type: String,
+            required: true,
         },
 
         // Teacher-specific fields
@@ -12,12 +14,13 @@ const DataSchema = new mongoose.Schema(
             type: String,
             default: "Not Provided",
         },
+
         subjects: {
             type: [String],
             // Default to an empty array when not provided
             default: [],
             // Allowed subjects (each element of the array must be one of these)
-            enum: ["Computer Architecture and Organization", "Computer Networks", "Operating System", "Database Managment System", "Data Structure and Alogrithm", "Object Oriented Programming", "Software Engineering", "Theory of Computation", "Discrete Mathematics", "Cloud Computing", "Compiler Design", "Design and Analysis of Algorithm"],
+            enum: ["Computer Architecture and Organization", "Computer Networks", "Operating System", "Database Management System", "Data Structure and Algorithm", "Object Oriented Programming", "Software Engineering", "Theory of Computation", "Discrete Mathematics", "Cloud Computing", "Compiler Design", "Design and Analysis of Algorithm"],
         },
 
         // Student-specific fields        
@@ -29,7 +32,7 @@ const DataSchema = new mongoose.Schema(
         },
         enrollmentNumber: {
             type: String,
-            unique: true
+            // unique: true
         },
 
         // other model references

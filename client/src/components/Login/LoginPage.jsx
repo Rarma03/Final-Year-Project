@@ -25,7 +25,13 @@ const LoginPage = () => {
     try{
       const res = await axios.post("http://localhost:5000/api/auth/login", formData);
       dispatch({type: "LOGIN_SUCCESS", payload: res.data});
-      window.location.replace("/feature");
+      // console.log(res);
+      if(res.data.isFirstTime){
+        window.location.replace("/commondataform");
+      }
+      else{
+        window.location.replace("/feature");
+      }
     }
     catch(err){
       dispatch({type: "LOGIN_FAILURE", payload: err.response?.data || "Something went wrong",});
