@@ -45,7 +45,13 @@ const DataSchema = new mongoose.Schema(
         jobPosts: [
             {
                 type: mongoose.Schema.Types.ObjectId,
-                ref: "JobModel",
+                ref: "JobpostModel",
+            },
+        ],
+        flatRequests: [
+            {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: "FlatRequestModel",
             },
         ],
     },

@@ -1,7 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { AuthContext } from '../../AuthContext';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const CreateFlatRequestForm = () => {
+    const { user } = useContext(AuthContext);
+    console.log(user);
+    const navigate = useNavigate();
+
     const [formData, setFormData] = useState({
+        userId: user._id,
         name: '',
         description: '',
         location: '',
@@ -19,9 +27,19 @@ const CreateFlatRequestForm = () => {
         });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log('Form submitted:', formData);
+        try{
+            const endpoint = "http://localhost:5000/api/flat";
+            const response = await axios.post(endpoint, formData);
+
+            if (response.status === 201) {
+                navigate('/profile');
+            }
+        }
+        catch(err){
+            console.log("Submission error:", err);
+        }
     };
 
     return (
@@ -54,12 +72,12 @@ const CreateFlatRequestForm = () => {
 
                 <div className="mb-4">
                     <label htmlFor="rent" className="block text-sm font-medium text-gray-700">Rent (in &#8377;):</label>
-                    <input type="number" id="rent" name="rent" placeholder='e.g. 5000' value={formData.rent} onChange={handleChange} className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:border-amber-500 focus:ring focus:ring-amber-200" />
+                    <input type="number" id="rent" name="rent" placeholder='e.g. 5000' value={formData.rent} onChange={handleChange} required className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:border-amber-500 focus:ring focus:ring-amber-200" />
                 </div>
 
                 <div className="mb-4">
                     <label htmlFor="moveInDate" className="block text-sm font-medium text-gray-700">Move-in Date:</label>
-                    <input type="date" id="moveInDate" name="moveInDate" value={formData.moveInDate} onChange={handleChange} className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:border-amber-500 focus:ring focus:ring-amber-200" />
+                    <input type="date" id="moveInDate" name="moveInDate" value={formData.moveInDate} onChange={handleChange} required className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:border-amber-500 focus:ring focus:ring-amber-200" />
                 </div>
 
                 <div className="mb-4">

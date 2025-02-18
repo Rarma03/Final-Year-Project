@@ -1,6 +1,10 @@
 import mongoose from 'mongoose';
 
 const FlatRequestSchema = new mongoose.Schema({
+    userId: {
+        type: String,
+        required: true,
+    },
     name: {
         type: String,
         required: true,
@@ -27,7 +31,7 @@ const FlatRequestSchema = new mongoose.Schema({
     },
     moveInDate: {
         type: Date,
-        required: true,
+        required: true
     },
     contactInfo: {
         type: String,
@@ -39,5 +43,5 @@ const FlatRequestSchema = new mongoose.Schema({
 });
 
 // Create and export the FlatRequest model
-const FlatRequestModel = mongoose.model('FlatRequest', FlatRequestSchema);
+const FlatRequestModel = mongoose.model('FlatRequestModel', FlatRequestSchema);
 export default FlatRequestModel;
