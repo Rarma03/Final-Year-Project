@@ -3,9 +3,10 @@ import { Link, useLocation } from 'react-router-dom';
 import UploadBookForm from './UploadBookForm';
 import CreateFlatRequestForm from './CreateFlatRequestForm';
 
-const LowerSectionPage = () => {
+const LowerSectionPage = ({ user }) => {
     const location = useLocation();
     const pth = location.pathname; // Get current route
+    console.log(user);
 
     return (
         <div className="bg-white flex flex-col md:flex-row flex-1 mt-5 p-4 border border-amber-500 rounded-br-[50px] md:rounded-br-[100px]">
@@ -30,7 +31,7 @@ const LowerSectionPage = () => {
             {/* Right Section (Dynamic Content) */}
             <div className="w-full md:w-3/4 p-3">
                 {pth === '/' && <p className="text-gray-500">Nothing to show</p>}
-                {pth === '/profile/uploadbook' && <div className="text-black"><UploadBookForm /></div>}
+                {pth === '/profile/uploadbook' && <div className="text-black"><UploadBookForm userid={user._id} /></div>}
                 {pth === '/profile/createflatrequest' && <div className="text-black"><CreateFlatRequestForm /></div>}
             </div>
         </div>

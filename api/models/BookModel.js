@@ -29,17 +29,19 @@ const BookSchema = new mongoose.Schema({
             message: "Invalid Google Drive link"
         }
     }, // Link to the user's Google Drive document
+
     verified: {
         type: Number, // 0 - teacher load , 1 - main section load, 2 - rejected
-        default: false
+        default: 0
     }, // Whether the book is verified
     verifiedBy: {
         type: String,
         default: null
     }, // Name of the teacher who verified the book
+
     uploadedBy: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'StudentModel',
+        ref: 'User',
         required: true
     }, // Reference to the user who uploaded the book
 
@@ -50,7 +52,7 @@ const BookSchema = new mongoose.Schema({
 
     likes: [{
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'StudentModel'
+        ref: 'User'
     }] // References to users who liked the book
 }, {
     timestamps: true // Automatically adds createdAt and updatedAt fields

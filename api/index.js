@@ -1,12 +1,13 @@
 import express from "express";
 import dotenv from "dotenv";
-import mongoose from "mongoose"; 
+import mongoose from "mongoose";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 
 import authRoute from "./routes/auth.js";
 import commonData from "./routes/commonData.js";
 import flatRoute from "./routes/flat.js";
+import bookRoute from "./routes/book.js"
 
 
 const app = express();
@@ -25,6 +26,7 @@ mongoose
 app.use("/api/auth", authRoute);
 app.use("/api/commonData", commonData);
 app.use("/api/flat", flatRoute);
+app.use("/api/book", bookRoute);
 
 // Start server
 const PORT = process.env.PORT || 5000;

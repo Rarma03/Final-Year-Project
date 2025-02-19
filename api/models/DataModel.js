@@ -3,9 +3,9 @@ import mongoose from "mongoose";
 const DataSchema = new mongoose.Schema(
     {
         userId: {
-            // type: mongoose.Schema.Types.ObjectId,
-            // ref: 'UserModel'
-            type: String,
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'UserModel',
+            // type: String,
             required: true,
         },
 

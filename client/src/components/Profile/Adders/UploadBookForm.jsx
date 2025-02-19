@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from "axios";
 
 // The allowed subjects for the dropdown selection
 const subjects = [
@@ -16,7 +17,9 @@ const subjects = [
     "Design and Analysis of Algorithm"
 ];
 
-const UploadBookForm = () => {
+const UploadBookForm = ({ userid }) => {
+    console.log(userid);
+
     const [formData, setFormData] = useState({
         title: '',
         semester: '',
@@ -64,8 +67,10 @@ const UploadBookForm = () => {
     };
 
     // Handle form submission
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
+
+        // Validate the form data
         const validationErrors = validate();
         if (Object.keys(validationErrors).length > 0) {
             setErrors(validationErrors);
@@ -85,21 +90,32 @@ const UploadBookForm = () => {
             branch: formData.branch.trim(),
             subject: formData.subject,
             tags: tagsArray,
-            driveLink: formData.driveLink.trim()
+            driveLink: formData.driveLink.trim(),
+            uploadedBy: userid
         };
 
         console.log('Submitting form data:', dataToSubmit);
 
-        // TODO: Replace the console.log with an API call (e.g., using fetch or axios)
+        try {
+            // Make the API call using Axios
+            // const response = await axios.post("/api/books", dataToSubmit);
+            const response = await axios.post("http://localhost:5000/api/book", dataToSubmit);
+            console.log("Book created successfully:", response.data);
+            // Optionally, notify the user or redirect after success
+        } catch (error) {
+            // Log error details (using optional chaining in case of no response)
+            console.error("Error creating book:", error.response?.data || error.message);
+            // Optionally, update error state for UI feedback
+        }
 
-        // Optionally, reset form state after submission
+        // Reset the form data and errors after submission
         setFormData({
-            title: '',
-            semester: '',
-            branch: '',
-            subject: '',
-            tags: '',
-            driveLink: ''
+            title: "",
+            semester: "",
+            branch: "",
+            subject: "",
+            tags: "",
+            driveLink: ""
         });
         setErrors({});
     };

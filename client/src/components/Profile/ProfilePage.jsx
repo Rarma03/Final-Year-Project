@@ -16,7 +16,7 @@ const ProfilePage = () => {
                 </svg>
             </Link>
             <UpperSectionPage username={user.name} />
-            <LowerSectionPage />
+            <LowerSectionPage user={user} />
             <div className="mt-5">&nbsp;</div>
         </div>
     );
