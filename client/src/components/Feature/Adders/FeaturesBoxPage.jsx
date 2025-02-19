@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const FeaturesBoxPage = () => {
+const FeaturesBoxPage = ({ user }) => {
     function box_print(feature_name, feature_desc, feature_color, feature_link, feature_svg) {
         return (
             <Link to={feature_link} className={`${feature_color} m-2 h-[300px] rounded-xl transition-all duration-300 ease-in-out hover:scale-[1.02] hover:shadow-2xl hover:z-10 cursor-pointer flex flex-col items-center justify-center p-4 relative overflow-hidden group`}>
@@ -48,7 +48,7 @@ const FeaturesBoxPage = () => {
                 </svg>
             ))}
 
-            {box_print("Notification", "Description for feature 6", "bg-pink-200", "/", (
+            {user.isTeacher && box_print("Approve/Reject Book", "Description for feature 6", "bg-pink-200", "/bookstatus", (
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-6">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m6-6H6" />
                 </svg>

@@ -39,4 +39,50 @@ router.post("/", async (req, res) => {
     }
 });
 
+// GET pending books for a teacher (using teacher's userId)
+router.get("/pending/:userId", async (req, res) => {
+    try {
+        const { userId } = req.params;
+        // Find the teacher's data by userId in DataModel
+        const teacherData = await DataModel.findOne({ userId });
+        if (!teacherData) {
+            return res.status(404).json({ success: false, message: "Teacher data not found" });
+        }
+        const teacherSubjects = teacherData.subjects; // Array of subjects
+
+        // Find all books with verified status 0 and subject in teacherSubjects
+        const pendingBooks = await BookModel.find({
+            verified: 0,
+            subject: { $in: teacherSubjects },
+        });
+        res.status(200).json({ success: true, data: pendingBooks });
+    } catch (error) {
+        console.error("Error fetching pending books:", error);
+        res.status(500).json({ success: false, message: "Server error", error: error.message });
+    }
+});
+
+// PUT route to update book status (accept/decline)
+router.put("/:bookId/status", async (req, res) => {
+    try {
+        const { bookId } = req.params;
+        const { status, verifiedBy } = req.body; // status: 1 (accept) or 2 (decline)
+
+        const updatedBook = await BookModel.findByIdAndUpdate(
+            bookId,
+            { verified: status, verifiedBy },
+            { new: true, runValidators: true }
+        );
+
+        if (!updatedBook) {
+            return res.status(404).json({ success: false, message: "Book not found" });
+        }
+
+        res.status(200).json({ success: true, data: updatedBook });
+    } catch (error) {
+        console.error("Error updating book status:", error);
+        res.status(500).json({ success: false, message: "Server error", error: error.message });
+    }
+});
+
 export default router;

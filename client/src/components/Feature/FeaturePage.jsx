@@ -20,7 +20,7 @@ const FeaturePage = () => {
                 {/* Contains Features */}
                 <div className='col-span-7 bg-white rounded-r-md border-2 border-l-0 border-amber-400 p-4 mb-5 md:mb-0'>
                     {/* main items */}
-                    <FeaturesBoxPage />
+                    <FeaturesBoxPage user={user} />
                 </div>
 
                 {/* Recent things */}

@@ -16,6 +16,7 @@ import ProfilePage from './components/Profile/ProfilePage.jsx';
 import UploadBookForm from './components/Profile/Adders/UploadBookForm.jsx';
 import CreateFlatRequestForm from './components/Profile/Adders/CreateFlatRequestForm.jsx';
 import CommonDataFormPage from './components/Commondata/CommonDataFormPage.jsx';
+import BookStatusPage from './components/Bookstatus/BookStatusPage.jsx';
 
 function App() {
   const location = useLocation(); // Get current route location
@@ -70,6 +71,10 @@ function App() {
         <Route
           path="/commondataform"
           element={<PageWrapper><CommonDataFormPage /></PageWrapper>}
+        />
+        <Route
+          path="/bookstatus"
+          element={<PageWrapper><BookStatusPage /></PageWrapper>}
         />
 
         <Route path="/profile" element={<ProfilePage />}>
