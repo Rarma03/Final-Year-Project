@@ -16,18 +16,52 @@ router.post("/", async (req, res) => {
         const userInfo = user.isTeacher
             ? { userId: userId, department: formData.department, subjects: formData.subjects }
             : { userId: userId, graduationYear: formData.graduationYear, branch: formData.branch, enrollmentNumber: formData.enrollmentNumber };
-        
+
         const userData = new DataModel(userInfo);
         await userData.save();
 
         // Update the isFirstTime field to false
         user.isFirstTime = false;
         await user.save();
-        
+
         res.status(201).json({ message: "User info added", userData });
     } catch (err) {
         // res.status(500).json({ message: "Internal Server Error" });
         res.status(500).json({ message: "Internal Server Error", error: err.message });
+    }
+});
+
+router.get("/:userId", async (req, res) => {
+    try {
+        const { userId } = req.params;
+        const userData = await DataModel.findOne({ userId });
+        if (!userData) {
+            return res.status(404).json({
+                success: false,
+                message: "User data not found"
+            });
+        }
+
+        // Derive counts from the arrays
+        const bookCount = userData.booksUploaded.length;
+        const jobPostCount = userData.jobPosts.length;
+        const fundRaisingCount = userData.flatRequests.length;
+
+        res.status(200).json({
+            success: true,
+            data: {
+                bookCount,
+                jobPostCount,
+                fundRaisingCount
+            }
+        });
+    } catch (error) {
+        console.error("Error fetching user data:", error);
+        res.status(500).json({
+            success: false,
+            message: "Server error",
+            error: error.message
+        });
     }
 });
 

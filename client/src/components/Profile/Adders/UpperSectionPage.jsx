@@ -1,10 +1,36 @@
-import React from 'react';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 
-const UpperSectionPage = ({ username }) => {
-    const userName = username;
-    const bookCount = 10;
-    const discussionCount = 5;
-    const fundRaisingCount = 2;
+const UpperSectionPage = ({ user }) => {
+    const userName = user.name;
+    const userId = user._id;
+
+    // State to hold the counts retrieved from the backend
+    const [counts, setCounts] = useState({
+        bookCount: 0,
+        jobPostCount: 0,
+        fundRaisingCount: 0,
+    });
+
+    // Fetch counts from the backend once the userId is available
+    useEffect(() => {
+        const fetchCounts = async () => {
+            try {
+                const response = await axios.get(`http://localhost:5000/api/commonData/${userId}`);
+                if (response.data.success) {
+                    setCounts(response.data.data);
+                } else {
+                    console.error("Failed to fetch counts:", response.data.message);
+                }
+            } catch (error) {
+                console.error("Error fetching user counts:", error.response?.data || error.message);
+            }
+        };
+
+        if (userId) {
+            fetchCounts();
+        }
+    }, [userId]);
 
     return (
         <div className="flex flex-col md:flex-row bg-white p-4 border border-amber-400 rounded-tl-3xl rounded-tr-full shadow-md items-center md:items-start">
@@ -30,9 +56,9 @@ const UpperSectionPage = ({ username }) => {
                     Welcome, <strong className="text-amber-500">{userName}</strong>
                 </div>
                 <div className="flex flex-col mt-2 space-y-1 text-sm text-gray-700">
-                    <p>📚 Total Books/Notes Uploaded: <strong>{bookCount}</strong></p>
-                    <p>💬 Discussions: <strong>{discussionCount}</strong></p>
-                    <p>🤝 Fundraising Requests: <strong>{fundRaisingCount}</strong></p>
+                    <p>📚 Total Books/Notes Uploaded: <strong>{counts.bookCount}</strong></p>
+                    <p>💬 Job Post: <strong>{counts.jobPostCount}</strong></p>
+                    <p>🤝 Fundraising Requests: <strong>{counts.fundRaisingCount}</strong></p>
                 </div>
             </div>
         </div>
