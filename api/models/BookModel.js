@@ -16,7 +16,7 @@ const BookSchema = new mongoose.Schema({
     subject: {
         type: String,
         required: true,
-        enum: ["Computer Architecture and Organization", "Computer Networks", "Operating System", "Database Managment System", "Data Structure and Alogrithm", "Object Oriented Programming", "Software Engineering", "Theory of Computation", "Discrete Mathematics", "Cloud Computing", "Compiler Design", "Design and Analysis of Algorithm"]
+        enum: ["Computer Architecture and Organization", "Computer Networks", "Operating System", "Database Management System", "Data Structure and Alogrithm", "Object Oriented Programming", "Software Engineering", "Theory of Computation", "Discrete Mathematics", "Cloud Computing", "Compiler Design", "Design and Analysis of Algorithm"]
     }, // Dropdown menu for subject selection
     tags: [{
         type: String

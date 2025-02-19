@@ -85,4 +85,87 @@ router.put("/:bookId/status", async (req, res) => {
     }
 });
 
+// GET /api/books/search?q=searchString
+// GET /api/book/search?q=...&subject=...&page=...&limit=...
+router.get("/search", async (req, res) => {
+    try {
+        const { q, subject, page, limit } = req.query;
+        const criteria = { verified: 1 }; // Only accepted books
+
+        // If a search query exists, add OR conditions
+        if (q && q.trim().length > 0) {
+            const searchRegex = new RegExp(q.trim(), "i");
+            criteria.$or = [
+                { title: searchRegex },
+                { subject: searchRegex },
+                { tags: { $in: [searchRegex] } }
+            ];
+        }
+
+        // If a subject filter is provided, override subject criteria
+        if (subject) {
+            criteria.subject = subject;
+        }
+
+        // Pagination defaults
+        const pageNum = parseInt(page) || 1;
+        const limitNum = parseInt(limit) || 20;
+        const skipNum = (pageNum - 1) * limitNum;
+
+        const books = await BookModel.find(criteria)
+            .sort({ createdAt: -1 })
+            .skip(skipNum)
+            .limit(limitNum)
+            .populate("uploadedBy", "name email"); // Optional: include uploader info
+
+        const totalBooks = await BookModel.countDocuments(criteria);
+
+        res.status(200).json({
+            success: true,
+            data: books.map(book => ({
+                ...book._doc,
+                likesCount: book.likes.length
+            })),
+            total: totalBooks,
+            page: pageNum,
+            pages: Math.ceil(totalBooks / limitNum)
+        });
+    } catch (error) {
+        console.error("Error searching books:", error);
+        res.status(500).json({
+            success: false,
+            message: "Internal server error",
+            error: error.message
+        });
+    }
+});
+
+// PATCH /api/book/:bookId/like
+router.patch("/:bookId/like", async (req, res) => {
+    try {
+        const { bookId } = req.params;
+        const { userId } = req.body;
+
+        // $addToSet will add userId only if it's not already in the likes array
+        const updatedBook = await BookModel.findByIdAndUpdate(
+            bookId,
+            { $addToSet: { likes: userId } },
+            { new: true, runValidators: true }
+        );
+
+        if (!updatedBook) {
+            return res.status(404).json({ success: false, message: "Book not found" });
+        }
+
+        res.status(200).json({ success: true, data: updatedBook });
+    } catch (error) {
+        console.error("Error updating like:", error);
+        res.status(500).json({
+            success: false,
+            message: "Internal server error",
+            error: error.message,
+        });
+    }
+});
+
 export default router;
