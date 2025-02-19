@@ -1,7 +1,7 @@
 import React from 'react';
 
-const UpperSectionPage = () => {
-    const userName = "Raj Verma";
+const UpperSectionPage = ({ username }) => {
+    const userName = username;
     const bookCount = 10;
     const discussionCount = 5;
     const fundRaisingCount = 2;

@@ -1,9 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 
-const ProfileLogo = () => {
-
-    const UserName = "Raj Verma";
+const ProfileLogo = ({ username }) => {
+    const UserName = username;
 
     return (
         <Link to={'/profile'} className='flex items-center'>
