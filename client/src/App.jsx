@@ -17,6 +17,7 @@ import UploadBookForm from './components/Profile/Adders/UploadBookForm.jsx';
 import CreateFlatRequestForm from './components/Profile/Adders/CreateFlatRequestForm.jsx';
 import CommonDataFormPage from './components/Commondata/CommonDataFormPage.jsx';
 import BookStatusPage from './components/Bookstatus/BookStatusPage.jsx';
+import MyRoomRequestPage from './components/Roommate/Adders/MyRoomRequestPage.jsx';
 
 function App() {
   const location = useLocation(); // Get current route location
@@ -62,8 +63,10 @@ function App() {
         />
         <Route
           path="/roomfinder"
-          element={<PageWrapper><RoomMatePage /></PageWrapper>}
-        />
+          element={<RoomMatePage />}
+        >
+          <Route path="myroomrequest" element={<MyRoomRequestPage />} />
+        </Route>
         <Route
           path="/fundrasing"
           element={<PageWrapper><FundRasingPage /></PageWrapper>}

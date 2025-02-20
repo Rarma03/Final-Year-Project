@@ -35,7 +35,7 @@ const CreateFlatRequestForm = () => {
             const response = await axios.post(endpoint, formData);
 
             if (response.status === 201) {
-                navigate('/profile');
+                navigate(`/roomfinder/myroomrequest`);
             }
         }
         catch (err) {
@@ -48,13 +48,13 @@ const CreateFlatRequestForm = () => {
             <h2 className="text-2xl font-bold mb-4 text-gray-700">Find a Roommate</h2>
             <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="mb-4">
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-700">Your Name:</label>
-                    <input type="text" id="name" name="name" placeholder='e.g. Raj Verma' value={formData.name} onChange={handleChange} required className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:border-amber-500 focus:ring focus:ring-amber-200" />
+                    <label htmlFor="name" className="block text-sm font-medium text-gray-700">Room Heading:</label>
+                    <input type="text" id="name" name="name" placeholder='e.g. 2 BHK Furnished Flat' value={formData.name} onChange={handleChange} required className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:border-amber-500 focus:ring focus:ring-amber-200" />
                 </div>
 
                 <div className="mb-4">
                     <label htmlFor="description" className="block text-sm font-medium text-gray-700">Description:</label>
-                    <textarea id="description" name="description" placeholder='e.g. I am Looking for a boy flatmate, any branch, available to share rent with half price' value={formData.description} onChange={handleChange} required className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:border-amber-500 focus:ring focus:ring-amber-200" />
+                    <textarea id="description" name="description" placeholder='e.g. I am a 3rd year in I.T. Branch looking for 2 student preferably of same year to share room and room is located near malwamil' value={formData.description} onChange={handleChange} required className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:border-amber-500 focus:ring focus:ring-amber-200 h-[150px]" />
                 </div>
 
                 <div className="mb-4">

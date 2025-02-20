@@ -2,7 +2,8 @@ import mongoose from 'mongoose';
 
 const FlatRequestSchema = new mongoose.Schema({
     userId: {
-        type: String,
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'UserModel',
         required: true,
     },
     name: {
