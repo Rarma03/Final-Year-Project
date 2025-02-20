@@ -168,4 +168,27 @@ router.patch("/:bookId/like", async (req, res) => {
     }
 });
 
+// handle bookmark of books
+router.patch("/bookmark", async (req, res) => {
+    try {
+        const { userId, bookId } = req.body;
+        if (!userId || !bookId) {
+            return res.status(400).json({ success: false, message: "Missing userId or bookId" });
+        }
+        // Use $addToSet to add the bookId only if it doesn't already exist in the array
+        const updatedData = await DataModel.findOneAndUpdate(
+            { userId },
+            { $addToSet: { booksBookmark: bookId } },
+            { new: true }
+        );
+        if (!updatedData) {
+            return res.status(404).json({ success: false, message: "User data not found" });
+        }
+        return res.status(200).json({ success: true, data: updatedData });
+    } catch (error) {
+        console.error("Error bookmarking book:", error);
+        return res.status(500).json({ success: false, message: "Server error" });
+    }
+});
+
 export default router;

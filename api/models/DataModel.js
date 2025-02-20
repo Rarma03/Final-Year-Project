@@ -54,6 +54,12 @@ const DataSchema = new mongoose.Schema(
                 ref: "FlatRequestModel",
             },
         ],
+        booksBookmark: [
+            {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: "BookModel",
+            },
+        ],
     },
     {
         timestamps: true, // Adds createdAt and updatedAt fields automatically

@@ -65,4 +65,21 @@ router.get("/:userId", async (req, res) => {
     }
 });
 
+router.get("/bookmarks/:userId", async (req, res) => {
+    try {
+        const { userId } = req.params;
+        if (!userId) {
+            return res.status(400).json({ success: false, message: "Missing userId" });
+        }
+        const userData = await DataModel.findOne({ userId }).populate("booksBookmark");
+        if (!userData) {
+            return res.status(404).json({ success: false, message: "User data not found" });
+        }
+        return res.status(200).json({ success: true, data: userData });
+    } catch (error) {
+        console.error("Error fetching bookmarks:", error);
+        return res.status(500).json({ success: false, message: "Server error" });
+    }
+});
+
 export default router;

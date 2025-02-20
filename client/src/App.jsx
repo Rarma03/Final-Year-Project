@@ -81,6 +81,7 @@ function App() {
           {/* ProfilePage could render UpperSectionPage and LowerSectionPage */}
           <Route path="uploadbook" element={<UploadBookForm />} />
           <Route path="createflatrequest" element={<CreateFlatRequestForm />} />
+          <Route path="bookmark" element={<CreateFlatRequestForm />} />
         </Route>
 
       </Routes>
