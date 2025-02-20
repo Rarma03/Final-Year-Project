@@ -3,7 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 
 const UpperSectionPage = ({ user }) => {
-    if (!user) { return <></>; }
+    if (!user) { return; }
 
     const userName = user.name;
     const userId = user._id;
@@ -62,7 +62,7 @@ const UpperSectionPage = ({ user }) => {
                 <div className="flex flex-col mt-2 space-y-1 text-sm text-gray-700">
                     <p>📚 Total Books/Notes Uploaded: <strong>{counts.bookCount}</strong></p>
                     <p>💬 Job Post: <strong>{counts.jobPostCount}</strong></p>
-                    <p>🤝 Fundraising Requests: <strong>{counts.fundRaisingCount}</strong></p>
+                    <p>🤝 Room Requests: <strong>{counts.fundRaisingCount}</strong></p>
                 </div>
             </div>
         </div>
