@@ -19,7 +19,14 @@ const MainNavBar = () => {
                 <SelectionBar />
             </div>
             <div className='col-span-1'>
-                <ProfileLogo username={user.name} />
+                {
+                    user &&
+                    <ProfileLogo username={user.name} />
+                }
+                {
+                    !user &&
+                    <Link to={'/login'} className='p-2 bg-blue-400 rounded-md hover:bg-blue-700 text-white px-5'>Login</Link>
+                }
             </div>
         </div>
     )

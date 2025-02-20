@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import UploadBookForm from './UploadBookForm';
 import CreateFlatRequestForm from './CreateFlatRequestForm';
-import LogoutButton from './LogoutButton';
+import LogoutButton from '../LogoutButton';
 
 const LowerSectionPage = ({ user }) => {
     const location = useLocation();

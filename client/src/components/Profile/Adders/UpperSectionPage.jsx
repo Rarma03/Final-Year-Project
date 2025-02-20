@@ -3,6 +3,8 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 
 const UpperSectionPage = ({ user }) => {
+    if (!user) { return <></>; }
+
     const userName = user.name;
     const userId = user._id;
 

@@ -8,7 +8,7 @@ import { AuthContext } from '../AuthContext.jsx'
 
 const FeaturePage = () => {
     const { user } = useContext(AuthContext);
-    console.log(user);
+    // console.log(user);
 
     return (
         <div className='flex flex-col min-h-screen'>
