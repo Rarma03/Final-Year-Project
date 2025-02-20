@@ -12,7 +12,8 @@ export const UserProvider = ({ children }) => {
     useEffect(() => {
         const fetchUser = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/api/me');
+                const BASE_URL = import.meta.env.VITE_REQUEST_HEADER;
+                const response = await axios.get(`${BASE_URL}/api/me`);
                 setUser(response.data);
             } catch (error) {
                 console.error("Error fetching user data:", error);

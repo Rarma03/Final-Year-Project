@@ -45,7 +45,8 @@ const RegisterPage = () => {
 
         try {
             // Make a POST request to your registration endpoint.
-            const response = await axios.post('http://localhost:5000/api/auth/register', formData);
+            const BASE_URL = import.meta.env.VITE_REQUEST_HEADER;
+            const response = await axios.post(`${BASE_URL}/api/auth/register`, formData);
 
             // Check if the registration is successful.
             if (response.status === 201) {

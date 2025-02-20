@@ -18,7 +18,8 @@ const BookCard = ({ book, user }) => {
     const handleLike = async () => {
         if (!user) return; // Ensure the user is logged in
         try {
-            const response = await axios.patch(`http://localhost:5000/api/book/${book._id}/like`, {
+            const BASE_URL = import.meta.env.VITE_REQUEST_HEADER;
+            const response = await axios.patch(`${BASE_URL}/api/book/${book._id}/like`, {
                 userId: user._id,
             });
             if (response.data.success) {

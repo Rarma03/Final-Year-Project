@@ -29,15 +29,16 @@ const CreateFlatRequestForm = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        try{
-            const endpoint = "http://localhost:5000/api/flat";
+        try {
+            const BASE_URL = import.meta.env.VITE_REQUEST_HEADER;
+            const endpoint = `${BASE_URL}/api/flat`;
             const response = await axios.post(endpoint, formData);
 
             if (response.status === 201) {
                 navigate('/profile');
             }
         }
-        catch(err){
+        catch (err) {
             console.log("Submission error:", err);
         }
     };

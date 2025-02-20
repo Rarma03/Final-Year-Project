@@ -54,8 +54,9 @@ const CommonDataFormPage = () => {
         setError('');
 
         try {
-            const endpoint = "http://localhost:5000/api/commonData";
-                
+            const BASE_URL = import.meta.env.VITE_REQUEST_HEADER;
+            const endpoint = `${BASE_URL}/api/commonData`;
+
             // Ensure enrollment no is unique -> To be completed
             const response = await axios.post(endpoint, {
                 userId: user._id,

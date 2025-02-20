@@ -11,7 +11,8 @@ const BookStatusPage = () => {
     useEffect(() => {
         const fetchPendingBooks = async () => {
             try {
-                const response = await axios.get(`http://localhost:5000/api/book/pending/${user._id}`);
+                const BASE_URL = import.meta.env.VITE_REQUEST_HEADER;
+                const response = await axios.get(`${BASE_URL}/api/book/pending/${user._id}`);
                 if (response.data.success) {
                     setPendingBooks(response.data.data);
                 } else {
@@ -30,7 +31,8 @@ const BookStatusPage = () => {
     // Handler to update book status
     const updateBookStatus = async (bookId, status) => {
         try {
-            const response = await axios.put(`http://localhost:5000/api/book/${bookId}/status`, {
+            const BASE_URL = import.meta.env.VITE_REQUEST_HEADER;
+            const response = await axios.put(`${BASE_URL}/api/book/${bookId}/status`, {
                 status, // 1 for accepted, 2 for declined
                 verifiedBy: user.name,
             });

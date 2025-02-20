@@ -16,7 +16,8 @@ const UpperSectionPage = ({ user }) => {
     useEffect(() => {
         const fetchCounts = async () => {
             try {
-                const response = await axios.get(`http://localhost:5000/api/commonData/${userId}`);
+                const BASE_URL = import.meta.env.VITE_REQUEST_HEADER;
+                const response = await axios.get(`${BASE_URL}/api/commonData/${userId}`);
                 if (response.data.success) {
                     setCounts(response.data.data);
                 } else {

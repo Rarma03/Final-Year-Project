@@ -32,7 +32,9 @@ const VirtualLibraryPage = () => {
                 limit: 20
             }).toString();
 
-            const response = await axios.get(`http://localhost:5000/api/book/search?${params}`);
+            const BASE_URL = import.meta.env.VITE_REQUEST_HEADER;
+            const response = await axios.get(`${BASE_URL}/api/book/search?${params}`);
+
             if (response.data.success) {
                 // If resetting, replace results; otherwise, append them
                 setResults(reset ? response.data.data : [...results, ...response.data.data]);

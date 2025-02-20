@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { Link } from "react-router-dom";
-import {AuthContext} from "../AuthContext.jsx"
+import { AuthContext } from "../AuthContext.jsx"
 import axios from 'axios';
 
 const LoginPage = () => {
@@ -9,7 +9,7 @@ const LoginPage = () => {
     password: '',
   });
   // const [error, setError] = useState('');
-  const {loading, error, dispatch} = useContext(AuthContext);
+  const { loading, error, dispatch } = useContext(AuthContext);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -21,20 +21,21 @@ const LoginPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    dispatch({type: "LOGIN_START"});
-    try{
-      const res = await axios.post("http://localhost:5000/api/auth/login", formData);
-      dispatch({type: "LOGIN_SUCCESS", payload: res.data});
+    dispatch({ type: "LOGIN_START" });
+    try {
+      const BASE_URL = import.meta.env.VITE_REQUEST_HEADER;
+      const res = await axios.post(`${BASE_URL}/api/auth/login`, formData);
+      dispatch({ type: "LOGIN_SUCCESS", payload: res.data });
       // console.log(res);
-      if(res.data.isFirstTime){
+      if (res.data.isFirstTime) {
         window.location.replace("/commondataform");
       }
-      else{
+      else {
         window.location.replace("/feature");
       }
     }
-    catch(err){
-      dispatch({type: "LOGIN_FAILURE", payload: err.response?.data || "Something went wrong",});
+    catch (err) {
+      dispatch({ type: "LOGIN_FAILURE", payload: err.response?.data || "Something went wrong", });
     }
   };
 
