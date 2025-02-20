@@ -10,7 +10,8 @@ import { AuthContext } from '../AuthContext.jsx'
 const VirtualLibraryPage = () => {
     const { user } = useContext(AuthContext);
     const [searchQuery, setSearchQuery] = useState("");
-    const [filters, setFilters] = useState({ subject: "" });
+    // const [filters, setFilters] = useState({ subject: "" });
+    const [filters, setFilters] = useState({ subject: "", sort: "" });
     const [results, setResults] = useState([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
@@ -28,6 +29,7 @@ const VirtualLibraryPage = () => {
             const params = new URLSearchParams({
                 q: searchQuery,
                 subject: filters.subject,
+                sort: filters.sort, // added sort parameter
                 page: currentPage,
                 limit: 20
             }).toString();
@@ -81,6 +83,25 @@ const VirtualLibraryPage = () => {
                         <option value="Database Managment System">Database Management System</option>
                         <option value="Data Structure and Alogrithm">Data Structure & Algorithm</option>
                         {/* Other options as defined in your BookModel enum */}
+                    </select>
+                </div>
+
+                {/* New Sort by Likes Dropdown */}
+                <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Sort by Likes
+                    </label>
+                    <select
+                        value={filters.sort}
+                        onChange={(e) => {
+                            setFilters({ ...filters, sort: e.target.value });
+                            setPage(1);
+                        }}
+                        className="w-full p-2 border rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    >
+                        <option value="">Default</option>
+                        <option value="likes_desc">Most Liked</option>
+                        <option value="likes_asc">Least Liked</option>
                     </select>
                 </div>
             </div>
