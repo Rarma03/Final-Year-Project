@@ -137,7 +137,6 @@ const BookCard = ({ book, user }) => {
                     {likeCount} {hasLiked ? "Liked" : "Like"}
                 </button>}
                 {!user && <button
-                    onClick={handleLike}
                     disabled={hasLiked}
                     className={`flex items-center text-sm text-red-500 cursor-not-allowed`}
                 >
