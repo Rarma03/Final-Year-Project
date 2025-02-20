@@ -43,7 +43,7 @@ const BookCard = ({ book, user }) => {
             });
             if (response.data.success) {
                 // Optionally, update the UI or show a success message
-                console.log("Book bookmarked successfully");
+                alert("Book bookmarked successfully");
             }
         } catch (error) {
             console.error("Error bookmarking book:", error.response?.data || error.message);
