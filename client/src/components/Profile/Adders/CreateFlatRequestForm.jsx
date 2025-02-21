@@ -44,7 +44,7 @@ const CreateFlatRequestForm = () => {
     };
 
     return (
-        <div className="max-w-md mx-auto p-6 bg-white shadow-md rounded-md">
+        <div className="max-w-md mx-auto p-6 bg-white shadow-md rounded-md border-t-4 border-b-4 border-amber-500">
             <h2 className="text-2xl font-bold mb-4 text-gray-700">Find a Roommate</h2>
             <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="mb-4">

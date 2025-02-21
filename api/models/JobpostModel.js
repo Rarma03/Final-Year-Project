@@ -29,7 +29,7 @@ const JobpostSchema = new mongoose.Schema({
     },
     postedBy: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'StudentModel', // Reference to the user (student/alumni) who posted the job
+        ref: 'UserModel', // Reference to the user (student/alumni) who posted the job
         required: true
     }, // Links the job post to the user who created it
     isActive: {
@@ -40,10 +40,6 @@ const JobpostSchema = new mongoose.Schema({
         type: Date,
         default: Date.now
     }, // Timestamp for when the job post was created
-    // updatedAt: {
-    //     type: Date,
-    //     default: Date.now
-    // } // Timestamp for when the job post was last updated
 });
 
 // Middleware to automatically update `updatedAt` before saving

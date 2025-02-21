@@ -6,7 +6,7 @@ const subjects = [
     "Computer Architecture and Organization",
     "Computer Networks",
     "Operating System",
-    "Database Managment System",
+    "Database Management System",
     "Data Structure and Alogrithm",
     "Object Oriented Programming",
     "Software Engineering",
@@ -18,7 +18,7 @@ const subjects = [
 ];
 
 const UploadBookForm = ({ userid }) => {
-    console.log(userid);
+    // console.log(userid);
 
     const [formData, setFormData] = useState({
         title: '',
@@ -94,7 +94,7 @@ const UploadBookForm = ({ userid }) => {
             uploadedBy: userid
         };
 
-        console.log('Submitting form data:', dataToSubmit);
+        // console.log('Submitting form data:', dataToSubmit);
 
         try {
             // Make the API call using Axios
@@ -121,7 +121,7 @@ const UploadBookForm = ({ userid }) => {
     };
 
     return (
-        <form onSubmit={handleSubmit} className="max-w-md mx-auto p-6 bg-white shadow-md rounded-md">
+        <form onSubmit={handleSubmit} className="max-w-md mx-auto p-6 bg-white shadow-md rounded-md border-t-4 border-b-4 border-amber-500">
             <h2 className="text-2xl font-bold mb-4 text-gray-700">Create a New Book/Notes</h2>
             <div className="mb-4">
                 <label htmlFor="title" className="block text-sm font-medium text-gray-700">
