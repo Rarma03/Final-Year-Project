@@ -18,6 +18,9 @@ import CreateFlatRequestForm from './components/Profile/Adders/CreateFlatRequest
 import CommonDataFormPage from './components/Commondata/CommonDataFormPage.jsx';
 import BookStatusPage from './components/Bookstatus/BookStatusPage.jsx';
 import MyRoomRequestPage from './components/Roommate/Adders/MyRoomRequestPage.jsx';
+import BookMarkPage from './components/Profile/Adders/BookMarkPage.jsx';
+import CreateJobPostForm from './components/Profile/Adders/CreateJobPostForm.jsx';
+import MyJobPostPage from './components/Jobportal/Adders/MyJobPostPage.jsx';
 
 function App() {
   const location = useLocation(); // Get current route location
@@ -53,10 +56,11 @@ function App() {
           path="/library"
           element={<PageWrapper><VirtualLibraryPage /></PageWrapper>}
         />
-        <Route
-          path="/jobs"
-          element={<PageWrapper><JobPostPage /></PageWrapper>}
-        />
+
+        <Route path="/jobs" element={<JobPostPage />}>
+          <Route path="myjobpost" element={<MyJobPostPage />} />
+        </Route>
+
         <Route
           path="/events"
           element={<PageWrapper><EventPage /></PageWrapper>}
@@ -84,7 +88,9 @@ function App() {
           {/* ProfilePage could render UpperSectionPage and LowerSectionPage */}
           <Route path="uploadbook" element={<UploadBookForm />} />
           <Route path="createflatrequest" element={<CreateFlatRequestForm />} />
-          <Route path="bookmark" element={<CreateFlatRequestForm />} />
+          <Route path="createjob" element={<CreateJobPostForm />} />
+          <Route path="bookmark" element={<BookMarkPage />} />
+
         </Route>
 
       </Routes>

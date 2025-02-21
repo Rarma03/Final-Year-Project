@@ -4,6 +4,7 @@ import UploadBookForm from './UploadBookForm';
 import CreateFlatRequestForm from './CreateFlatRequestForm';
 import LogoutButton from '../LogoutButton';
 import BookMarkPage from './BookMarkPage';
+import CreateJobPostForm from './CreateJobPostForm';
 
 const LowerSectionPage = ({ user }) => {
     const location = useLocation();
@@ -28,6 +29,12 @@ const LowerSectionPage = ({ user }) => {
                         Create Request for Room-mate
                     </Link>
                     <Link
+                        to="/profile/createjob"
+                        className={`block p-2 rounded-md ${pth === '/profile/createjob' ? 'text-orange-500 font-semibold' : 'text-gray-700'}`}
+                    >
+                        Create New Job Post
+                    </Link>
+                    <Link
                         to="/profile/bookmark"
                         className={`block p-2 rounded-md ${pth === '/profile/bookmark' ? 'text-orange-500 font-semibold' : 'text-gray-700'}`}
                     >
@@ -48,6 +55,7 @@ const LowerSectionPage = ({ user }) => {
                     <div className="text-black"><CreateFlatRequestForm /></div>
                 }
                 {pth === '/profile/bookmark' && <div className="text-black"><BookMarkPage /></div>}
+                {pth === '/profile/createjob' && <div className="text-black"><CreateJobPostForm /></div>}
             </div>
         </div>
     );

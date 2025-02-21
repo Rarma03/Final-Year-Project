@@ -8,7 +8,7 @@ const JobpostSchema = new mongoose.Schema({
     },
     jobDescription: {
         type: String,
-        required: true,
+        default: "NA",
         trim: true
     },
     role: {
@@ -18,13 +18,28 @@ const JobpostSchema = new mongoose.Schema({
     },
     salary: {
         type: String,
-        default: "NA",
+        default: "Competitive Salary",
         required: true,
         trim: true
     },
     city: {
         type: String,
-        required: true,
+        default: "As Per Business Req.",
+        trim: true
+    },
+    jobLink: {
+        type: String,
+        trim: true
+    },
+    jobType: {
+        type: String,
+        trim: true,
+        enum: [
+            "Full-Time", "Intern", "Part-Time"
+        ]
+    },
+    linkedinUrl: {
+        type: String,
         trim: true
     },
     postedBy: {
@@ -32,21 +47,11 @@ const JobpostSchema = new mongoose.Schema({
         ref: 'UserModel', // Reference to the user (student/alumni) who posted the job
         required: true
     }, // Links the job post to the user who created it
-    isActive: {
-        type: Boolean,
-        default: true
-    }, // Indicates if the job post is active or inactive (can be toggled by the user)
     createdAt: {
         type: Date,
         default: Date.now
     }, // Timestamp for when the job post was created
 });
-
-// Middleware to automatically update `updatedAt` before saving
-// JobpostSchema.pre('save', function (next) {
-//     this.updatedAt = Date.now();
-//     next();
-// });
 
 // Create and export the Jobpost model
 const JobpostModel = mongoose.model('JobpostModel', JobpostSchema);
