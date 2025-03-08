@@ -9,6 +9,7 @@ import commonData from "./routes/commonData.js";
 import flatRoute from "./routes/flat.js";
 import bookRoute from "./routes/book.js"
 import jobRoute from "./routes/job.js"
+import interviewexpRoute from "./routes/interviewExp.js"
 
 const app = express();
 app.use(express.json());
@@ -28,6 +29,7 @@ app.use("/api/commonData", commonData);
 app.use("/api/flat", flatRoute);
 app.use("/api/book", bookRoute);
 app.use("/api/job", jobRoute);
+app.use("/api/interview", interviewexpRoute);
 
 // Start server
 const PORT = process.env.PORT || 5000;

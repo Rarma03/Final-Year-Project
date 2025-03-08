@@ -5,6 +5,7 @@ import CreateFlatRequestForm from './CreateFlatRequestForm';
 import LogoutButton from '../LogoutButton';
 import BookMarkPage from './BookMarkPage';
 import CreateJobPostForm from './CreateJobPostForm';
+import CreateInterviewExpPage from './CreateInterviewExpPage';
 
 const LowerSectionPage = ({ user }) => {
     const location = useLocation();
@@ -40,6 +41,12 @@ const LowerSectionPage = ({ user }) => {
                     >
                         Book-Marks
                     </Link>
+                    <Link
+                        to="/profile/createinterview"
+                        className={`block p-2 rounded-md ${pth === '/profile/createinterview' ? 'text-orange-500 font-semibold' : 'text-gray-700'}`}
+                    >
+                        Create Interview Experience
+                    </Link>
                 </nav>
             </div>
 
@@ -56,6 +63,7 @@ const LowerSectionPage = ({ user }) => {
                 }
                 {pth === '/profile/bookmark' && <div className="text-black"><BookMarkPage /></div>}
                 {pth === '/profile/createjob' && <div className="text-black"><CreateJobPostForm /></div>}
+                {pth === '/profile/createinterview' && <div className="text-black"><CreateInterviewExpPage userid={user._id} /></div>}
             </div>
         </div>
     );

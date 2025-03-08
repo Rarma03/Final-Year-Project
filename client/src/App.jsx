@@ -21,6 +21,8 @@ import MyRoomRequestPage from './components/Roommate/Adders/MyRoomRequestPage.js
 import BookMarkPage from './components/Profile/Adders/BookMarkPage.jsx';
 import CreateJobPostForm from './components/Profile/Adders/CreateJobPostForm.jsx';
 import MyJobPostPage from './components/Jobportal/Adders/MyJobPostPage.jsx';
+import CreateInterviewExpPage from './components/Profile/Adders/CreateInterviewExpPage.jsx';
+import IntExpDetailPage from './components/Interview/IntExpDetailPage.jsx';
 
 function App() {
   const location = useLocation(); // Get current route location
@@ -51,6 +53,10 @@ function App() {
         <Route
           path="/interviews"
           element={<PageWrapper><InterviewExpPage /></PageWrapper>}
+        />
+        <Route
+          path="/interviews/:companyname/:id"
+          element={<PageWrapper><IntExpDetailPage /></PageWrapper>}
         />
         <Route
           path="/library"
@@ -90,7 +96,7 @@ function App() {
           <Route path="createflatrequest" element={<CreateFlatRequestForm />} />
           <Route path="createjob" element={<CreateJobPostForm />} />
           <Route path="bookmark" element={<BookMarkPage />} />
-
+          <Route path="createinterview" element={<CreateInterviewExpPage />} />
         </Route>
 
       </Routes>
