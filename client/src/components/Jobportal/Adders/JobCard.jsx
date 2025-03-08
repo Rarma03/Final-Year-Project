@@ -41,7 +41,7 @@ const JobCard = ({ job, canDelete, onDelete }) => {
             <div className="grid grid-cols-3 gap-4 mb-6">
                 <div className="flex items-center space-x-2">
                     <FiBriefcase className="text-blue-600 w-5 h-5" />
-                    <span className="text-gray-700">{job.employmentType || 'Full-time'}</span>
+                    <span className="text-gray-700">{job.jobType || 'Full-time'}</span>
                 </div>
                 <div className="flex items-center space-x-2">
                     <FiDollarSign className="text-green-600 w-5 h-5" />
