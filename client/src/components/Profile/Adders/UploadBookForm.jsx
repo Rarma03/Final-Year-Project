@@ -100,12 +100,12 @@ const UploadBookForm = ({ userid }) => {
             // Make the API call using Axios
             const BASE_URL = import.meta.env.VITE_REQUEST_HEADER;
             const response = await axios.post(`${BASE_URL}/api/book`, dataToSubmit);
-            console.log("Book created successfully:", response.data);
+            alert("Book created successfully 🥸");
             // Optionally, notify the user or redirect after success
         } catch (error) {
             // Log error details (using optional chaining in case of no response)
             console.error("Error creating book:", error.response?.data || error.message);
-            // Optionally, update error state for UI feedback
+            alert("Error creating book:", error.response?.data || error.message);
         }
 
         // Reset the form data and errors after submission
