@@ -1,6 +1,6 @@
 import express from "express";
 import UserModel from "../models/UserModel.js";
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 
 const router = express.Router();
@@ -26,7 +26,7 @@ router.post("/register", async (req, res) => {
         const user = await newUser.save();
         res.status(201).json({ message: "User registered successfully", user });
 
-    } 
+    }
     catch (err) {
         res.status(500).json({ message: "Internal Server Error" });
     }
@@ -43,21 +43,21 @@ router.post("/login", async (req, res) => {
         }
 
         const validated = await bcrypt.compare(req.body.password, user.password);
-        
+
         if (!validated) {
             return res.status(400).json({ message: "Wrong Credentials" });
         }
 
         const jwtSecretKey = "your_secret_key";
-        const token = jwt.sign({id: user._id}, jwtSecretKey);
+        const token = jwt.sign({ id: user._id }, jwtSecretKey);
 
         const { password, ...others } = user._doc;
         res.cookie("accessToken", token, {
             httpOnly: true
         });
-        
+
         res.status(200).json(others);
-    } 
+    }
     catch (err) {
         res.status(500).json({ message: "Internal Server Error" });
     }
