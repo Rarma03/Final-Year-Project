@@ -23,6 +23,10 @@ mongoose
     .then(() => console.log('Connected to MongoDB'))
     .catch((err) => console.error('Error connecting to MongoDB:', err));
 
+app.get('/', (req, res) => {
+    res.send('Hello World');
+})
+
 // Routes
 app.use("/api/auth", authRoute);
 app.use("/api/commonData", commonData);
@@ -31,9 +35,6 @@ app.use("/api/book", bookRoute);
 app.use("/api/job", jobRoute);
 app.use("/api/interview", interviewexpRoute);
 
-app.get('/', (req, res) => {
-    res.send('Hello World');
-})
 
 // Start server
 // const PORT = process.env.PORT || 5000;
