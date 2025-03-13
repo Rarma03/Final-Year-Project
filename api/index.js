@@ -31,6 +31,10 @@ app.use("/api/book", bookRoute);
 app.use("/api/job", jobRoute);
 app.use("/api/interview", interviewexpRoute);
 
+app.get('/', (req, res) => {
+    res.send('Hello World');
+})
+
 // Start server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
