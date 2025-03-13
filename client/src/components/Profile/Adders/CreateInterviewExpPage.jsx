@@ -58,6 +58,7 @@ const CreateInterviewExpPage = ({ userid, username }) => {
             postedBy: userid,
             uploaderName: username,
         };
+        console.log(dataToSubmit);
 
         try {
             const BASE_URL = import.meta.env.VITE_REQUEST_HEADER;
