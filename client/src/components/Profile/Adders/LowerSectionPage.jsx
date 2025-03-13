@@ -63,7 +63,7 @@ const LowerSectionPage = ({ user }) => {
                 }
                 {pth === '/profile/bookmark' && <div className="text-black"><BookMarkPage /></div>}
                 {pth === '/profile/createjob' && <div className="text-black"><CreateJobPostForm /></div>}
-                {pth === '/profile/createinterview' && <div className="text-black"><CreateInterviewExpPage userid={user._id} /></div>}
+                {pth === '/profile/createinterview' && <div className="text-black"><CreateInterviewExpPage userid={user._id} username={user.name} /></div>}
             </div>
         </div>
     );

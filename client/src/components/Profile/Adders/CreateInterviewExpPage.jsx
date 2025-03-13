@@ -6,7 +6,7 @@ import "quill/dist/quill.snow.css";  // Updated import as per latest Quill docs
 const jobTypes = ["Full-Time", "Intern", "Intern + FT"];
 const difficulties = ["Easy", "Medium", "Hard", "Difficult"];
 
-const CreateInterviewExpPage = ({ userid }) => {
+const CreateInterviewExpPage = ({ userid, username }) => {
     const [formData, setFormData] = useState({
         companyName: "",
         role: "",
@@ -19,6 +19,7 @@ const CreateInterviewExpPage = ({ userid }) => {
         jobType: "",
         linkedinUrl: "",
         postedBy: userid,
+        uploaderName: username,
     });
 
     const [errors, setErrors] = useState({});
@@ -55,6 +56,7 @@ const CreateInterviewExpPage = ({ userid }) => {
         const dataToSubmit = {
             ...formData,
             postedBy: userid,
+            uploaderName: username,
         };
 
         try {
@@ -73,6 +75,7 @@ const CreateInterviewExpPage = ({ userid }) => {
                 jobType: "",
                 linkedinUrl: "",
                 postedBy: userid,
+                uploaderName: username,
             });
             setErrors({});
         } catch (error) {

@@ -49,6 +49,10 @@ const InterviewExpSchema = new mongoose.Schema({
         type: String,
         trim: true
     },
+    uploaderName: {
+        type: String,
+        trim: true
+    },
     postedBy: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'UserModel', // Reference to the user (student/alumni) who posted the Exp

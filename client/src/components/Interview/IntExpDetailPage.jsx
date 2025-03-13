@@ -15,7 +15,7 @@ import {
 } from "@heroicons/react/24/solid";
 
 const IntExpDetailPage = () => {
-    const { user } = useContext(AuthContext);
+    // const { user } = useContext(AuthContext);
     const { id } = useParams();
     const navigate = useNavigate();
     const [interview, setInterview] = useState(null);
@@ -186,7 +186,7 @@ const IntExpDetailPage = () => {
                         <div className="flex items-center justify-center p-6 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg shadow-xl transform hover:scale-105 transition duration-300">
                             <span className="text-white text-3xl mr-3">❤️</span>
                             <div className="text-white text-xl">
-                                Special Thanks To <span className="font-bold text-yellow-300">{user.name}</span> for Contributing
+                                Special Thanks To <span className="font-bold text-yellow-300">{interview.uploaderName || "Anonymous"}</span> for Contributing
                             </div>
                         </div>
 

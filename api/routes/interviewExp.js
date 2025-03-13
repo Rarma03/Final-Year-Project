@@ -6,7 +6,7 @@ const router = express.Router();
 // Create an interview experience
 router.post("/create", async (req, res) => {
     try {
-        const { companyName, role, interviewRounds, interviewRoundsDescription, salary, interviewDifficulty, city, jobType, linkedinUrl, postedBy } = req.body;
+        const { companyName, role, interviewRounds, interviewRoundsDescription, salary, interviewDifficulty, city, jobType, linkedinUrl, postedBy, uploaderName } = req.body;
 
         if (!companyName || !role || !salary || !postedBy) {
             return res.status(400).json({ error: "Company name, role, salary, and user ID are required." });
@@ -23,6 +23,7 @@ router.post("/create", async (req, res) => {
             jobType,
             linkedinUrl,
             postedBy,
+            uploaderName,
         });
 
         await newInterview.save();
