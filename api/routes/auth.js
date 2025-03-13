@@ -5,6 +5,10 @@ import jwt from "jsonwebtoken";
 
 const router = express.Router();
 
+router.get("/", (req, res) => {
+    res.send("Auth endpoint is working!");
+});
+
 // REGISTER
 router.post("/register", async (req, res) => {
     try {
