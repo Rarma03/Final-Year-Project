@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 
 const CreateFlatRequestForm = () => {
     const { user } = useContext(AuthContext);
-    console.log(user);
+    // console.log(user);
     const navigate = useNavigate();
 
     const [formData, setFormData] = useState({
