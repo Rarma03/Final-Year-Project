@@ -10,7 +10,15 @@ const EventSchema = new mongoose.Schema({
         type: String,
         required: true,
         trim: true,
-    }
+    },
+    registerLink: {
+        type: String,
+        trim: true,
+    },
+    createdAt: {
+        type: Date,
+        default: Date.now
+    },
 });
 
 // Create and export the User model

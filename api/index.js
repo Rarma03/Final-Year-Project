@@ -10,6 +10,7 @@ import flatRoute from "./routes/flat.js";
 import bookRoute from "./routes/book.js"
 import jobRoute from "./routes/job.js"
 import interviewexpRoute from "./routes/interviewExp.js"
+import eventRoute from "./routes/event.js"
 
 const app = express();
 app.use(express.json());
@@ -34,6 +35,7 @@ app.use("/api/flat", flatRoute);
 app.use("/api/book", bookRoute);
 app.use("/api/job", jobRoute);
 app.use("/api/interview", interviewexpRoute);
+app.use("/api/event", eventRoute);
 
 
 // Start server
