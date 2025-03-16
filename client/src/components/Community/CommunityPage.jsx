@@ -5,7 +5,7 @@ const CommunityPage = () => {
     return (
         <div>
             <MainNavBar />
-            CommunityPage
+            <div className='bg-white p-4 flex items-center justify-center text-4xl h-[40vw]'> 🚧 Under construction.</div>
         </div>
     )
 }

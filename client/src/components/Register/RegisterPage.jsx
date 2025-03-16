@@ -10,8 +10,8 @@ const RegisterPage = () => {
         isTeacher: false,
         teacherCode: ''
     });
-
     const [error, setError] = useState('');
+    const [loading, setLoading] = useState(false);
 
     const handleChange = (e) => {
         const { name, value, type, checked } = e.target;
@@ -42,7 +42,7 @@ const RegisterPage = () => {
         }
         // Clear any previous error.
         setError('');
-
+        setLoading(true);
         try {
             // Make a POST request to your registration endpoint.
             const BASE_URL = import.meta.env.VITE_REQUEST_HEADER;
@@ -57,6 +57,8 @@ const RegisterPage = () => {
         } catch (err) {
             console.error("Registration error:", err);
             setError('Registration failed. Please try again.');
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -89,10 +91,7 @@ const RegisterPage = () => {
                     <form onSubmit={handleSubmit}>
                         {/* Name Field */}
                         <div className="mb-4">
-                            <label
-                                htmlFor="name"
-                                className="block text-amber-700 font-semibold mb-2"
-                            >
+                            <label htmlFor="name" className="block text-amber-700 font-semibold mb-2">
                                 Name
                             </label>
                             <input
@@ -108,10 +107,7 @@ const RegisterPage = () => {
                         </div>
                         {/* Email Field */}
                         <div className="mb-4">
-                            <label
-                                htmlFor="email"
-                                className="block text-amber-700 font-semibold mb-2"
-                            >
+                            <label htmlFor="email" className="block text-amber-700 font-semibold mb-2">
                                 Email
                             </label>
                             <input
@@ -127,10 +123,7 @@ const RegisterPage = () => {
                         </div>
                         {/* Password Field */}
                         <div className="mb-4">
-                            <label
-                                htmlFor="password"
-                                className="block text-amber-700 font-semibold mb-2"
-                            >
+                            <label htmlFor="password" className="block text-amber-700 font-semibold mb-2">
                                 Password
                             </label>
                             <input
@@ -161,10 +154,7 @@ const RegisterPage = () => {
                         {/* Conditionally Render Teacher Unique ID Field */}
                         {formData.isTeacher && (
                             <div className="mb-4">
-                                <label
-                                    htmlFor="teacherCode"
-                                    className="block text-amber-700 font-semibold mb-2"
-                                >
+                                <label htmlFor="teacherCode" className="block text-amber-700 font-semibold mb-2">
                                     Teacher Unique ID
                                 </label>
                                 <input
@@ -182,12 +172,14 @@ const RegisterPage = () => {
                                 )}
                             </div>
                         )}
-                        {/* Submit Button */}
+                        {/* Submit Button with Loading Effect */}
                         <button
                             type="submit"
-                            className="w-full bg-amber-600 text-white font-semibold py-2 rounded hover:bg-amber-700 transition-colors"
+                            disabled={loading}
+                            className={`w-full bg-amber-600 text-white font-semibold py-2 rounded transition-colors ${loading ? 'opacity-50 cursor-not-allowed' : 'hover:bg-amber-700'
+                                }`}
                         >
-                            Register
+                            {loading ? 'Just a Min...' : 'Register'}
                         </button>
                     </form>
                     <div className="mt-4 text-center">

@@ -101,12 +101,14 @@ const LoginPage = () => {
             {error && (
               <p className="text-red-500 text-sm mb-4">Wrong Credentials</p>
             )}
-            {/* Submit Button */}
+            {/* Submit Button with Loading Effect */}
             <button
               type="submit"
-              className="w-full bg-amber-600 text-white font-semibold py-2 rounded hover:bg-amber-700 transition-colors"
+              disabled={loading}
+              className={`w-full bg-amber-600 text-white font-semibold py-2 rounded transition-colors ${loading ? 'opacity-50 cursor-not-allowed' : 'hover:bg-amber-700'
+                }`}
             >
-              Login
+              {loading ? '🪄Just a Min...' : 'Login 🔒'}
             </button>
           </form>
           <div className="mt-4 text-center">
