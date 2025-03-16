@@ -88,7 +88,7 @@ const HomePage = () => {
                             className="gridimg"
                             style={{
                                 backgroundImage:
-                                    "url(https://images.unsplash.com/photo-1677594334053-afe4b41aa0a3?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)"
+                                    "url(https://images.unsplash.com/photo-1525921429624-479b6a26d84d?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Y29sbGVnZXxlbnwwfHwwfHx8MA%3D%3D)"
                             }}
                         >
                             &nbsp;
@@ -150,7 +150,7 @@ const HomePage = () => {
                             &nbsp;
                         </div>
                         <div className="gridinfo">
-                            <h3>Holy Gate</h3>
+                            <h3>Golden Gate</h3>
                             <div className="gridmeta">
                                 <p className="gridwhen">
                                     <i className="fa fa-clock-o" /> 17:22 17th Feb 2015
@@ -200,7 +200,7 @@ const HomePage = () => {
                             className="gridimg"
                             style={{
                                 backgroundImage:
-                                    "url(https://www.sgsits.ac.in/images/PhotoGallery/GS11.jpg)"
+                                    "url(https://img.freepik.com/free-photo/sports-tools_53876-138077.jpg)"
                             }}
                         >
                             &nbsp;
@@ -228,7 +228,7 @@ const HomePage = () => {
                             className="gridimg"
                             style={{
                                 backgroundImage:
-                                    "url(https://www.sgsits.ac.in/images/Departments/it/ITmain.jpeg)"
+                                    "url(https://images.unsplash.com/photo-1449157291145-7efd050a4d0e?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8YnVpbGRpbmdzJTIwYmFja2dyb3VuZHxlbnwwfHwwfHx8MA%3D%3D)"
                             }}
                         >
                             &nbsp;
@@ -244,7 +244,7 @@ const HomePage = () => {
                                 </p>
                             </div>
                             <p className="gridexerpt">
-                                Lorem ipsum dolor set amet, some dummy content..
+                                We Have Departments of CSE, IT, EE, ME, IPE, BIO MED and also Courses such as MBA, Master's in degrees
                             </p>
                             <a href="#" className="grid-btn grid-more">
                                 <span>More</span> <i className="fa fa-plus" />
@@ -256,7 +256,7 @@ const HomePage = () => {
                             className="gridimg"
                             style={{
                                 backgroundImage:
-                                    "url(https://www.sgsits.ac.in/images/PhotoGallery/GS6.jpg)"
+                                    "url(https://plus.unsplash.com/premium_photo-1714329905829-41d19b4ad2f9?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YXdhcmRzfGVufDB8fDB8fHww)"
                             }}
                         >
                             &nbsp;
@@ -313,38 +313,45 @@ const HomePage = () => {
                         </div>
                     </div>
                 </div>
-                <div className="bg-white rounded-xl m-5 p-6 grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
-                    <div className="flex gap-8 items-center justify-center h-[100%] text-2xl">
-                        {/* Service List 1 */}
-                        <ul className="border-l border-black pl-4">
-                            <h2 className="font-bold mb-4">"Our Services</h2>
-                            <li>Academic Resource Hub</li>
-                            <li>Campus Event Notifications</li>
-                            <li>Room Finder and Flat-mate Match</li>
-                            <li>Job and Internship Opportunities</li>
-                            <li>Global Forums</li>
-                            <li>Chatbot Support</li>
-                        </ul>
-                        {/* Service List 2 */}
-                        <ul className="border-l border-black pl-4">
-                            <h2 className="font-bold mb-4">"Key Features</h2>
-                            <li>Discussion Forums</li>
-                            <li>Virtual Library</li>
-                            <li>Event Dashboard</li>
-                            <li>Profile Tracking</li>
-                            <li>Admin Panel</li>
-                            <li>Fundraising Portal</li>
-                        </ul>
-                    </div>
+
+                <div className="bg-white rounded-xl m-5 p-6 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
                     {/* Image Section */}
                     <div className="w-full">
                         <img
                             src="https://t3.ftcdn.net/jpg/06/94/85/20/360_F_694852065_7ik2P5TmHdeqzM57iwDVODt1XlUghZdM.jpg"
                             alt="Services Image"
-                            className="w-full h-auto"
+                            className="w-full h-auto object-cover rounded-xl"
                         />
                     </div>
+
+                    {/* Service and Features Section */}
+                    <div className="flex flex-col sm:flex-row gap-8 items-center justify-center text-2xl">
+                        <div className="w-full">
+                            <h2 className="font-bold mb-4 text-center sm:text-left underline">Themes</h2>
+                            <ul className="border-l border-black pl-4">
+                                <li>Academic Resource Hub</li>
+                                <li>Campus Event Notifications</li>
+                                <li>Room Finder and Flat-mate Match</li>
+                                <li>Job and Internship Opportunities</li>
+                                <li>Global Forums</li>
+                                <li>Chatbot Support</li>
+                            </ul>
+                        </div>
+                        <div className="w-full">
+                            <h2 className="font-bold mb-4 text-center sm:text-left underline">Key Features</h2>
+                            <ul className="border-l border-black pl-4">
+                                <li>Discussion Forums</li>
+                                <li>Virtual Library</li>
+                                <li>Event Dashboard</li>
+                                <li>Profile Tracking</li>
+                                <li>Admin Panel</li>
+                                <li>Fundraising Portal</li>
+                            </ul>
+                        </div>
+                    </div>
+
                 </div>
+
             </section>
             {/* Footer Section */}
             <footer className="bg-black text-white flex justify-center py-5">

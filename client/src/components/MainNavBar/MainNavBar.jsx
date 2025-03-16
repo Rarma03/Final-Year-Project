@@ -16,29 +16,45 @@ const MainNavBar = () => {
 
     return (
         <nav className="">
-            <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-                {/* Logo */}
-                <Link to="/" className="flex-shrink-0">
-                    <WebLogo />
-                </Link>
-                {/* Desktop Navigation */}
-                <div className="hidden md:block">
-                    <SelectionBar />
-                </div>
-                {/* Profile / Login and Mobile Menu Toggle */}
-                <div className="flex items-center">
-                    {user ? (
-                        <ProfileLogo username={user.name} />
-                    ) : (
-                        <Link
-                            to="/login"
-                            className="p-2 bg-blue-400 rounded-md hover:bg-blue-700 text-white px-5"
-                        >
-                            Login
+            <div className="container mx-auto px-4 py-4">
+                {/* Desktop Layout: Visible on md and above */}
+                <div className="hidden md:flex items-center justify-between">
+                    {/* Logo */}
+                    <div>
+                        <Link to="/">
+                            <WebLogo />
                         </Link>
-                    )}
-                    {/* Hamburger Icon for Mobile */}
-                    <div className="md:hidden ml-4">
+                    </div>
+                    {/* Menu items */}
+                    <div>
+                        <SelectionBar />
+                    </div>
+                    {/* Profile / Login */}
+                    <div>
+                        {user ? (
+                            <ProfileLogo username={user.name} />
+                        ) : (
+                            <Link
+                                to="/login"
+                                className="p-2 bg-blue-400 rounded-md hover:bg-blue-700 text-white px-5"
+                            >
+                                Login
+                            </Link>
+                        )}
+                    </div>
+                </div>
+
+                {/* Mobile Layout: Visible on screens below md */}
+                <div className="md:hidden">
+                    {/* Row 1: Logo */}
+                    <div className="flex justify-center">
+                        <Link to="/">
+                            <WebLogo />
+                        </Link>
+                    </div>
+                    {/* Row 2: Hamburger Menu & Profile */}
+                    <div className="flex items-center justify-between mt-4">
+                        {/* Hamburger Icon for Menu Toggle */}
                         <button
                             onClick={toggleMobileMenu}
                             className="text-gray-800 focus:outline-none"
@@ -49,18 +65,28 @@ const MainNavBar = () => {
                                 <Bars3Icon className="w-6 h-6" />
                             )}
                         </button>
+                        {/* Profile / Login remains visible */}
+                        <div>
+                            {user ? (
+                                <ProfileLogo username={user.name} />
+                            ) : (
+                                <Link
+                                    to="/login"
+                                    className="p-2 bg-blue-400 rounded-md hover:bg-blue-700 text-white px-5"
+                                >
+                                    Login
+                                </Link>
+                            )}
+                        </div>
                     </div>
+                    {/* Mobile Dropdown Menu: Shown when hamburger is toggled */}
+                    {isMobileMenuOpen && (
+                        <div className="mt-4 border-t border-gray-200 pt-4">
+                            <SelectionBar />
+                        </div>
+                    )}
                 </div>
             </div>
-            {/* Mobile Navigation Menu */}
-            {isMobileMenuOpen && (
-                <div className="md:hidden border-t border-gray-200">
-                    <div className="px-4 py-2">
-                        {/* You can reuse SelectionBar or place mobile-friendly nav items here */}
-                        <SelectionBar />
-                    </div>
-                </div>
-            )}
         </nav>
     );
 };
