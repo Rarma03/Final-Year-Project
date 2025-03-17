@@ -7,6 +7,8 @@ import BookCard from "./Adders/BookCard";
 import { useContext } from 'react'
 import { AuthContext } from '../AuthContext.jsx'
 
+import { Link } from "react-router-dom";
+
 const VirtualLibraryPage = () => {
     const { user } = useContext(AuthContext);
     const [searchQuery, setSearchQuery] = useState("");
@@ -160,6 +162,23 @@ const VirtualLibraryPage = () => {
             <MainNavBar />
             <div className="min-h-screen bg-white m-5">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+                    <Link
+                        to="/feature"
+                        className="flex bg-white w-fit py-1 px-3 rounded-full border-2 border-amber-300 mb-4"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            strokeWidth={1.5}
+                            stroke="currentColor"
+                            className="w-6 h-6"
+                        >
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+                        </svg>
+                        <span className="ml-2">Back</span>
+                    </Link>
+
                     {/* Search Bar */}
                     <div className="mb-8 relative">
                         <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">

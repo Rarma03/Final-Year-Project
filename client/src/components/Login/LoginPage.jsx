@@ -61,7 +61,8 @@ const LoginPage = () => {
       {/* Centered Login Form */}
       <div className="flex items-center justify-center p-4 min-h-screen">
         <div className="w-full max-w-md bg-white shadow-md rounded-lg p-6 border-t-6 border-amber-500">
-          <h2 className="text-2xl font-bold text-center text-amber-600 mb-6">
+          <h2 className="text-2xl font-bold text-center text-amber-600 mb-6 flex flex-row items-center justify-center">
+            <img src="./cutemouse.gif" className='h-[50px]' />
             Login
           </h2>
           <form onSubmit={handleSubmit}>
@@ -74,7 +75,7 @@ const LoginPage = () => {
                 type="email"
                 id="email"
                 name="email"
-                placeholder="Your email"
+                placeholder="e.g. 0801XX211071@sgsits.ac.in"
                 value={formData.email}
                 onChange={handleChange}
                 required
@@ -90,7 +91,7 @@ const LoginPage = () => {
                 type="password"
                 id="password"
                 name="password"
-                placeholder="Your password"
+                placeholder="e.g. pass1234"
                 value={formData.password}
                 onChange={handleChange}
                 required
