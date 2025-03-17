@@ -23,6 +23,7 @@ import CreateJobPostForm from './components/Profile/Adders/CreateJobPostForm.jsx
 import MyJobPostPage from './components/Jobportal/Adders/MyJobPostPage.jsx';
 import CreateInterviewExpPage from './components/Profile/Adders/CreateInterviewExpPage.jsx';
 import IntExpDetailPage from './components/Interview/IntExpDetailPage.jsx';
+import CreateEventForm from './components/Profile/Adders/CreateEventForm.jsx';
 
 function App() {
   const location = useLocation(); // Get current route location
@@ -97,6 +98,7 @@ function App() {
           <Route path="createjob" element={<CreateJobPostForm />} />
           <Route path="bookmark" element={<BookMarkPage />} />
           <Route path="createinterview" element={<CreateInterviewExpPage />} />
+          <Route path="createvent" element={<CreateEventForm />} />
         </Route>
 
       </Routes>

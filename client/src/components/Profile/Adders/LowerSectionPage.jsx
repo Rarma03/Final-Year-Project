@@ -6,6 +6,7 @@ import LogoutButton from '../LogoutButton';
 import BookMarkPage from './BookMarkPage';
 import CreateJobPostForm from './CreateJobPostForm';
 import CreateInterviewExpPage from './CreateInterviewExpPage';
+import CreateEventForm from './CreateEventForm';
 
 const LowerSectionPage = ({ user }) => {
     const location = useLocation();
@@ -47,6 +48,12 @@ const LowerSectionPage = ({ user }) => {
                     >
                         Create Interview Experience
                     </Link>
+                    <Link
+                        to="/profile/createvent"
+                        className={`block p-2 rounded-md ${pth === '/profile/createvent' ? 'text-orange-500 font-semibold' : 'text-gray-700'}`}
+                    >
+                        📢 Advertise Your Event
+                    </Link>
                 </nav>
             </div>
 
@@ -64,6 +71,7 @@ const LowerSectionPage = ({ user }) => {
                 {pth === '/profile/bookmark' && <div className="text-black"><BookMarkPage /></div>}
                 {pth === '/profile/createjob' && <div className="text-black"><CreateJobPostForm /></div>}
                 {pth === '/profile/createinterview' && <div className="text-black"><CreateInterviewExpPage userid={user._id} username={user.name} /></div>}
+                {pth === '/profile/createvent' && <div className="text-black"><CreateEventForm user={user} /></div>}
             </div>
         </div>
     );

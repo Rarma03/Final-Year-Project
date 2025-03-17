@@ -21,6 +21,8 @@
     "react-intersection-observer": "^9.16.0",
     "react-quill": "^2.0.0",
     "react-router-dom": "^7.1.3",
+    "react-slick": "^0.30.3",
+    "slick-carousel": "^1.8.1",
     "tailwindcss": "^4.0.0"
   },
   "devDependencies": {

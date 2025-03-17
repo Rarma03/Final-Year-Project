@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
 const EventSchema = new mongoose.Schema({
     userid: {
@@ -15,12 +15,20 @@ const EventSchema = new mongoose.Schema({
         type: String,
         trim: true,
     },
+    instagramLink: {
+        type: String,
+        trim: true,
+    },
+    view: {
+        type: Number,
+        default: 0,
+    },
     createdAt: {
         type: Date,
-        default: Date.now
+        default: Date.now,
+        // expires: 60 * 60 * 24 * 7  => delete post after 7 days (in seconds)
     },
 });
 
-// Create and export the User model
 const EventModel = mongoose.model('Event', EventSchema);
 export default EventModel;
