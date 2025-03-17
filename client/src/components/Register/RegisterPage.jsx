@@ -85,7 +85,7 @@ const RegisterPage = () => {
 
             {/* Centered Register Form */}
             <div className="flex items-center justify-center p-4 min-h-screen ">
-                <img src="./totoro.gif" className='absolute h-[100px] md:h-[120px]  md:top-[2px] top-[10px]' />
+                <img src="/totoro.gif" className='absolute h-[100px] md:h-[120px]  md:top-[2px] top-[10px]' />
                 <div className="w-full max-w-md bg-white shadow-md rounded-lg p-6 border-t-4 border-amber-500 md:mt-[34px]">
                     <h1 className="text-2xl font-bold text-center text-amber-600 mb-6">
                         Register
