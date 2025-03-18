@@ -24,6 +24,7 @@ import MyJobPostPage from './components/Jobportal/Adders/MyJobPostPage.jsx';
 import CreateInterviewExpPage from './components/Profile/Adders/CreateInterviewExpPage.jsx';
 import IntExpDetailPage from './components/Interview/IntExpDetailPage.jsx';
 import CreateEventForm from './components/Profile/Adders/CreateEventForm.jsx';
+import PostDetailPage from './components/Community/PostDetailPage.jsx';
 
 function App() {
   const location = useLocation(); // Get current route location
@@ -47,10 +48,16 @@ function App() {
           path="/feature"
           element={<PageWrapper><FeaturePage /></PageWrapper>}
         />
+
         <Route
           path="/community"
           element={<PageWrapper><CommunityPage /></PageWrapper>}
         />
+        <Route
+          path="/post/:postId"
+          element={<PageWrapper><PostDetailPage /></PageWrapper>}
+        />
+
         <Route
           path="/interviews"
           element={<PageWrapper><InterviewExpPage /></PageWrapper>}
