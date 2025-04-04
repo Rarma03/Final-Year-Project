@@ -62,7 +62,7 @@ const LoginPage = () => {
       <div className="flex items-center justify-center p-4 min-h-screen">
         <div className="w-full max-w-md bg-white shadow-md rounded-lg p-6 border-t-6 border-amber-500">
           <h2 className="text-2xl font-bold text-center text-amber-600 mb-6 flex flex-row items-center justify-center">
-            <img src="/cutemouse.gif" className='h-[50px]' />
+            <img src="https://github.com/Rarma03/Final-Year-Project/blob/main/client/public/cutemouse.gif?raw=true" className='h-[50px]' />
             Login
           </h2>
           <form onSubmit={handleSubmit}>

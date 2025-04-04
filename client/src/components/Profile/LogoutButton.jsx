@@ -39,7 +39,7 @@ const LogoutButton = () => {
                 </button>
                 {hover && (
                     <img
-                        src="/public/sadmouse.gif"
+                        src="https://github.com/Rarma03/Final-Year-Project/blob/main/client/public/sadmouse.gif?raw=true"
                         alt="Hover GIF"
                         className="absolute top-[-100px] left-0"
                     />
