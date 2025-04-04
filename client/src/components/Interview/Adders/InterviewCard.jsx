@@ -107,7 +107,7 @@ const InterviewCard = ({ Expdata, user }) => {
                         <div className="flex items-center space-x-2">
                             <span className="font-medium text-gray-800">{interviewRounds}</span>
                             <div className="flex space-x-1">
-                                {[...Array(interviewRounds)].map((_, i) => (
+                                {[...Array((interviewRounds % 10))].map((_, i) => (
                                     <div key={i} className="w-2 h-2 bg-blue-200 rounded-full"></div>
                                 ))}
                             </div>

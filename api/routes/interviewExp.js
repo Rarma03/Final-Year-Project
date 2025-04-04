@@ -37,7 +37,7 @@ router.post("/create", async (req, res) => {
 // GET /api/interview/search
 router.get("/search", async (req, res) => {
     try {
-        const { q = "", company = "", sort = "", page = 1, limit = 20 } = req.query;
+        const { q = "", company = "", sort = "", page = 1, limit = 6 } = req.query;
 
         const query = {};
 

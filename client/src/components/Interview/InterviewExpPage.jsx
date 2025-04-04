@@ -30,7 +30,7 @@ const InterviewExpPage = () => {
                 company: filters.company,
                 sort: filters.sort,
                 page: currentPage,
-                limit: 20,
+                limit: 6,
             }).toString();
 
             const BASE_URL = import.meta.env.VITE_REQUEST_HEADER;
