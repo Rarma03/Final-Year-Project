@@ -66,21 +66,16 @@ const HomePage = () => {
                             &nbsp;
                         </div>
                         <div className="gridinfo">
-                            <h3>SGITS</h3>
-                            <div className="gridmeta">
-                                <p className="gridwhen">
-                                    <i className="fa fa-clock-o" /> 17:22 17th Feb 2015
+                            <Link to={'https://www.sgsits.ac.in/'} target='_blank'>
+                                <h3>SGSITS</h3>
+
+                                <p className="gridexerpt">
+                                    Shri Govindram Seksaria Institute of Technology and Science (SGSITS) is an autonomous, state-aided engineering institute established in 1952 and spread over a 35-acre urban campus in Indore, Madhya Pradesh. Affiliated to Rajiv Gandhi Proudyogiki Vishwavidyalaya and Devi Ahilya Vishwavidyalaya, SGSITS fosters academic excellence through its diverse undergraduate, postgraduate, and doctoral programs
                                 </p>
-                                <p className="gridwho">
-                                    <i className="fa fa-user" /> Bruce Wayne
-                                </p>
-                            </div>
-                            <p className="gridexerpt">
-                                Lorem ipsum dolor set amet, some dummy content..
-                            </p>
-                            <a href="#" className="grid-btn grid-more">
-                                <span>More</span> <i className="fa fa-plus" />
-                            </a>
+                                <a href="#" className="grid-btn grid-more">
+                                    <span>More</span> <i className="fa fa-plus" />
+                                </a>
+                            </Link>
                         </div>
                     </div>
                     <div className="gridy-1 gridyhe-1">
@@ -95,16 +90,9 @@ const HomePage = () => {
                         </div>
                         <div className="gridinfo">
                             <h3>Students</h3>
-                            <div className="gridmeta">
-                                <p className="gridwhen">
-                                    <i className="fa fa-clock-o" /> 17:22 17th Feb 2015
-                                </p>
-                                <p className="gridwho">
-                                    <i className="fa fa-user" /> Harvey Dent
-                                </p>
-                            </div>
+
                             <p className="gridexerpt">
-                                Lorem ipsum dolor set amet, some dummy content..
+                                Our students form the vibrant heart of SGS Campus Connect, engaging in cultural fests, technical clubs, and leadership initiatives. From the annual techno-cultural extravaganza “Aayaam” to hobby clubs like CodeFoster and Team GSRacers, they explore innovation, creativity, and community outreach
                             </p>
                             <a href="#" className="grid-btn grid-more">
                                 <span>More</span> <i className="fa fa-plus" />
@@ -123,16 +111,9 @@ const HomePage = () => {
                         </div>
                         <div className="gridinfo">
                             <h3>Campus Ground</h3>
-                            <div className="gridmeta">
-                                <p className="gridwhen">
-                                    <i className="fa fa-clock-o" /> 17:22 17th Feb 2015
-                                </p>
-                                <p className="gridwho">
-                                    <i className="fa fa-user" /> Clark Kent
-                                </p>
-                            </div>
+
                             <p className="gridexerpt">
-                                Lorem ipsum dolor set amet, some dummy content..
+                                The sprawling campus ground serves as a multi-purpose arena for sports tournaments, open-air events, and social gatherings. Lush greenery and well-maintained lawns provide the perfect backdrop for everything from intra-college football matches to evening cultural soirées
                             </p>
                             <a href="#" className="grid-btn grid-more">
                                 <span>More</span> <i className="fa fa-plus" />
@@ -150,17 +131,10 @@ const HomePage = () => {
                             &nbsp;
                         </div>
                         <div className="gridinfo">
-                            <h3>Golden Gate</h3>
-                            <div className="gridmeta">
-                                <p className="gridwhen">
-                                    <i className="fa fa-clock-o" /> 17:22 17th Feb 2015
-                                </p>
-                                <p className="gridwho">
-                                    <i className="fa fa-user" /> Tony Stark
-                                </p>
-                            </div>
+                            <h3>Training & Placements</h3>
+
                             <p className="gridexerpt">
-                                Lorem ipsum dolor set amet, some dummy content..
+                                The Training and Placement Cell (TPC) at SGSITS serves as the pivotal bridge between academia and industry, organizing structured pre-placement training, internship programs, and annual campus recruitment drives with leading companies. It boasts a 96%+ placement rate and has secured highest packages reaching up to INR 44.5 LPA for its students
                             </p>
                             <a href="#" className="grid-btn grid-more">
                                 <span>More</span> <i className="fa fa-plus" />
@@ -179,16 +153,9 @@ const HomePage = () => {
                         </div>
                         <div className="gridinfo">
                             <h3>Library</h3>
-                            <div className="gridmeta">
-                                <p className="gridwhen">
-                                    <i className="fa fa-clock-o" /> 17:22 17th Feb 2015
-                                </p>
-                                <p className="gridwho">
-                                    <i className="fa fa-user" /> Steve Rogers
-                                </p>
-                            </div>
+
                             <p className="gridexerpt">
-                                Lorem ipsum dolor set amet, some dummy content..
+                                Established in 1955, the Central Library is the largest college library in Central India for technology and science education. Boasting over 108,000 books, 9,600 online journals, and extensive digital resources, it supports research and learning across all disciplines
                             </p>
                             <a href="#" className="grid-btn grid-more">
                                 <span>More</span> <i className="fa fa-plus" />
@@ -207,16 +174,9 @@ const HomePage = () => {
                         </div>
                         <div className="gridinfo">
                             <h3>Sports</h3>
-                            <div className="gridmeta">
-                                <p className="gridwhen">
-                                    <i className="fa fa-clock-o" /> 17:22 17th Feb 2015
-                                </p>
-                                <p className="gridwho">
-                                    <i className="fa fa-user" /> Steve Rogers
-                                </p>
-                            </div>
+
                             <p className="gridexerpt">
-                                Lorem ipsum dolor set amet, some dummy content..
+                                SGSITS promotes holistic development through its dedicated sports facilities, including indoor and outdoor courts, gymnasium, and a professional-grade football field. Regular tournaments in cricket, basketball, and athletics encourage teamwork, fitness, and sportsmanship
                             </p>
                             <a href="#" className="grid-btn grid-more">
                                 <span>More</span> <i className="fa fa-plus" />
@@ -234,21 +194,16 @@ const HomePage = () => {
                             &nbsp;
                         </div>
                         <div className="gridinfo">
-                            <h3>Departments</h3>
-                            <div className="gridmeta">
-                                <p className="gridwhen">
-                                    <i className="fa fa-clock-o" /> 17:22 17th Feb 2015
+                            <Link to={'https://sgsits.ac.in/departments'} target='_blank'>
+                                <h3>Departments</h3>
+
+                                <p className="gridexerpt">
+                                    Comprising 13 undergraduate and multiple postgraduate departments—from Computer Engineering to Industrial Pharmacy—SGSITS delivers specialized curricula, state-of-the-art labs, and expert faculty to nurture future innovators and researchers
                                 </p>
-                                <p className="gridwho">
-                                    <i className="fa fa-user" /> Bruce Wayne
-                                </p>
-                            </div>
-                            <p className="gridexerpt">
-                                We Have Departments of CSE, IT, EE, ME, IPE, BIO MED and also Courses such as MBA, Master's in degrees
-                            </p>
-                            <a href="#" className="grid-btn grid-more">
-                                <span>More</span> <i className="fa fa-plus" />
-                            </a>
+                                <a href="#" className="grid-btn grid-more">
+                                    <span>More</span> <i className="fa fa-plus" />
+                                </a>
+                            </Link>
                         </div>
                     </div>
                     <div className="gridy-1 gridyhe-1">
@@ -263,16 +218,9 @@ const HomePage = () => {
                         </div>
                         <div className="gridinfo">
                             <h3>Awards &amp; Achievements</h3>
-                            <div className="gridmeta">
-                                <p className="gridwhen">
-                                    <i className="fa fa-clock-o" /> 17:22 17th Feb 2015
-                                </p>
-                                <p className="gridwho">
-                                    <i className="fa fa-user" /> Steve Rogers
-                                </p>
-                            </div>
+
                             <p className="gridexerpt">
-                                Lorem ipsum dolor set amet, some dummy content..
+                                SGSITS consistently earns national recognition, including NIRF rankings (201–300 in Engineering, 2024), AICTE approvals, and student-won gold medals in K.G. Seksaria Awards. Alumni and faculty have also received prestigious honors such as Padma Shri
                             </p>
                             <a href="#" className="grid-btn grid-more">
                                 <span>More</span> <i className="fa fa-plus" />
